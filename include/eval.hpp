@@ -1,5 +1,5 @@
-#ifndef EVAL_H
-#define EVAL_H
+#ifndef EVAL_HPP
+#define EVAL_HPP
 
 #include <stdio.h>
 #include <stdlib.h>

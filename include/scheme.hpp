@@ -1,3 +1,6 @@
+#ifndef SCHEME_HPP
+#define SCHEME_HPP
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,3 +37,5 @@ extern object* apply_symbol;
 
 extern object* empty_environment;
 extern object* global_environment;
+
+#endif

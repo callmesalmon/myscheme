@@ -1,5 +1,5 @@
-#ifndef BUILTIN_H
-#define BUILTIN_H
+#ifndef BUILTIN_HPP
+#define BUILTIN_HPP
 
 #include <stdio.h>
 #include <stdlib.h>

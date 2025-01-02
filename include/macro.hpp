@@ -1,5 +1,5 @@
-#ifndef MACRO_H
-#define MACRO_H
+#ifndef MACRO_HPP
+#define MACRO_HPP
 
 /* Here there be dragons... */
 
