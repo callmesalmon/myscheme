@@ -148,8 +148,7 @@ int main(int argc, char**argv) {
     
     init();
     loadstd();
-    signal(SIGINT, sighandler);
-    while (1) {
+    while (true) {
         printf("> ");
         printer(eval(read(stdin), global_environment));
         printf("\n");
@@ -157,10 +156,3 @@ int main(int argc, char**argv) {
         
     return 0;
 }
-
-
-
-
-
-
-

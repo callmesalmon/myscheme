@@ -8,3 +8,6 @@ all: $(.DEFAULT_GOAL)
 
 $(.DEFAULT_GOAL): $(CPP_OBJS)
 	gcc $(CFLAGS) $(CPP_OBJS) -o $(.DEFAULT_GOAL)
+
+clean:
+	rm $(.DEFAULT_GOAL)
