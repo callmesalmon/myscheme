@@ -2,7 +2,8 @@
     (if (boolean? v)
         (if (= v #t)
             "True"
-            "False")))
+            "False")
+        #f))
 
 (bool #t) ; "True"  (#t => "True")
 (bool #f) ; "False" (#f => "False")

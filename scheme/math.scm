@@ -15,7 +15,8 @@
 
 ; Do a reverse implementation,
 ; since min is just !max we can
-; flip over min to be max.
+; flip over min to be max, E.G:
+; max(a, b) = !min(a, b)
 (define (max a b)
     (if (= (min a b) b)
       a  ; MIN(A, B) == B? A
@@ -23,8 +24,8 @@
 
 ; Here, we do a classic factorial
 ; implementation. Since ex. 5! ==
-; 4!, we can recurse trough.
+; 5 * 4!, we can recurse trough.
 (define (factorial n)
-    (if (= n 1)
+    (if (= n 1) ; We don't wanna recurse forever.
       1
       n * (factorial n - 1)))
