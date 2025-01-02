@@ -1,4 +1,5 @@
 .DEFAULT_GOAL=/usr/local/bin/myscm
+.PHONY: all
 
 CC          = gcc
 CFLAGS      = -I./include
