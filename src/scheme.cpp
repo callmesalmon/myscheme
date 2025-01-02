@@ -119,7 +119,7 @@ void loadstd() {
     FILE *std;
 
     std = fopen("scheme/std.scm" , "r");
-    if (std == NULL) {
+    if (!std) {
         fprintf(stdout,"Error opening scheme/std.scm\n");
     }
     else {
@@ -130,24 +130,44 @@ void loadstd() {
     fclose (std);
 }
 
+void loadsrc(char *source) {
+    FILE *src;
+
+    src = fopen(source, "r");
+    if (!src) {
+        fprintf(stdout, "Error opening source file!!!\n");
+        return;
+    }
+    else {
+        while (peek(src)!=EOF) {
+            printer(eval(read(src), global_environment));
+        }
+    }
+    fclose(src);
+}
+
 void sighandler(int signum)
 {
     printf("\n> ");
 }
 
-int main(int argc, char**argv) {
-
+int main(int argc, char** argv) {
     if ( argc>1 && !strcmp(argv[1],"-d") ) {
         printf("Debug mode!\n");
         debug=1;
     }
+
     printf("********************************\n\n\n"
         "             MyScheme              \n\n\n"
         "          ctrl-d to exit.          \n\n\n"
            "********************************\n");
     
     init();
-    loadstd();
+
+    if (argc > 1 ) {
+        loadsrc(argv[1]);
+    }
+    
     while (true) {
         printf("> ");
         printer(eval(read(stdin), global_environment));
