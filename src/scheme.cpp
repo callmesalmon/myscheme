@@ -1,6 +1,5 @@
 #include <scheme.hpp>
 
-
 #define DEBUG(...)                   \
        do  {                         \
            if (debug==1) {           \
@@ -154,7 +153,7 @@ void sighandler(int signum)
 }
 
 int main(int argc, char** argv) {
-    if ( argc>1 && !strcmp(argv[1],"-d") ) {
+    if (argc > 1 && !strcmp(argv[1], "-d")) {
         printf("Debug mode!\n");
         debug=1;
     }
@@ -166,7 +165,7 @@ int main(int argc, char** argv) {
     
     init();
 
-    if (argc > 1 ) {
+    if (argc > 1) {
         loadsrc(argv[1]);
     }
     
