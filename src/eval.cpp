@@ -345,7 +345,7 @@ object* eval(object* exp, object* env) {
                 exp=first_exp(exp);
             }
             else {
-                fprintf(stderr, "cannot eval unknow expression\n");
+                fprintf(stderr, "[ERROR] Cannot eval unknown expression.\n");
                 exit(1);
             }
         }
@@ -353,7 +353,7 @@ object* eval(object* exp, object* env) {
             return exp;
         }
         else {
-            fprintf(stderr, "cannot eval unknow expression\n");
+            fprintf(stderr, "[ERROR] Cannot eval unknown expression.\n");
             exit(1);
         }
 
