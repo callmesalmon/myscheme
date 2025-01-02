@@ -102,21 +102,14 @@ typedef struct object {
 
 
 void init_symbol();
-
 object* new_object();
-
 object *car(object *pair);
-
 object *cdr(object *pair);
-
 void set_car(object *obj, object* value);
-
 void set_cdr(object *obj, object* value);
-
 object* cons(object* car, object* cdr);
 
-
-// chacacter object
+// character object
 object* make_character(char c);
 
 // integer object
@@ -140,43 +133,25 @@ double RealtoNum(object* obj);
 
 // string
 object* make_string(const char* buffer);
-
 object* make_symbol(const char* buffer);
-
 object* make_warn(const char* buffer);
-
 object* make_lambda(object *parameters, object *body);
-
 object* make_compound_func(object* parameters, object* body, object* env);
 
 int is_pair(object *obj);
-
 int is_empty_list(object *obj);
-
 int is_false(object *obj);
-
 int is_true(object *obj);
-
 int is_boolean(object* obj);
-
 int is_character(object* obj);
-
 int is_integer(object* obj);
-
 int is_real(object* obj);
-
 int is_number(object *exp);
-
 int is_string(object* obj);
-
 int is_variable(object* exp);
-
 int is_symbol(object* obj);
-
 int is_warn(object* obj);
-
 int is_quote(object* exp);
-
 int is_self_value(object* exp);
 
 // assignment expression: set!
@@ -187,31 +162,18 @@ int is_def(object* exp);
 
 // if expression: if
 int is_if(object* exp);
-
 int is_function(object* exp);
-
 int is_lambda(object* exp);
-
 int is_last_exp(object* exp);
-
 int is_begin(object* exp);
-
 int is_cond(object* exp);
-
 int is_cond_else(object* exp);
-
 int is_let(object* exp);
-
 int is_apply(object* exp);
-
 int is_and_or(object* exp);
-
 int is_builtin_procedure( object* obj);
-
 int is_compound_func(object* obj);
-
 int is_input_port(object* obj);
-
 int is_output_port(object* obj);
 
 #endif

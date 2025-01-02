@@ -31,71 +31,37 @@ extern object* apply_symbol;
 extern object* empty_environment;
 extern object* global_environment;
 
-
-
 object* make_builtin_procedure( object *(*func)(object* arguments) );
-
 object* add_procedure(object* args);
-
 object* sub_procedure(object* args);
-
 object* mul_procedure(object* args);
-
 object* div_procedure(object* args);
-
 object* mod_procedure(object* args);
-
 object* num_equal_procedure(object* args);
-
 object* less_than_procedure(object* args);
-
 object* greater_than_procedure(object* args);
-
 object* and_procedure(object* args);
-
 object* or_procedure(object* args);
-
 object* null_procedure(object* args);
-
 object* boolean_procedure(object* args);
-
 object* symbol_procedure(object* args);
-
 object* integer_procedure(object* args);
-
 object* char_procedure(object* args);
-
 object* string_procedure(object* args);
-
 object* pair_procedure(object *args);
-
 object* procedure_procedure(object* args);
-
 object* char_to_integer_procedure(object* args);
-
 object* integer_to_char_procedure(object* args);
-
 object* number_to_string_procedure(object* args);
-
 object* string_to_number_procedure(object* args);
-
 object* symbol_to_string_procedure(object* args);
-
 object* string_to_symbol_procedure(object* args);
-
 object* cons_procedure(object* args);
-
 object* car_procedure(object* args);
-
 object* cdr_procedure(object* args);
-
 object* set_car_procedure(object* args);
-
 object* set_cdr_procedure(object* args);
-
 object* list_procedure(object* args);
-
 object* eq_procedure(object* args);
-
 
 #endif

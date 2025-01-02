@@ -32,8 +32,6 @@ extern object* empty_environment;
 extern object* global_environment;
 
 object* read (FILE* in);
-
 char peek(FILE* in);
-
 
 #endif

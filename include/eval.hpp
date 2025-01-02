@@ -35,6 +35,4 @@ extern object* global_environment;
 
 object* eval(object* exp, object* env);
 
-
-
 #endif

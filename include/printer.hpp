@@ -31,9 +31,7 @@ extern object* apply_symbol;
 extern object* empty_environment;
 extern object* global_environment;
 
-
 void print_pair(object* obj);
-
 void printer(object *obj);
 
 #endif
