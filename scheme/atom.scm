@@ -17,3 +17,9 @@
     (cond
       ((null? tup) 0)
       (else (o+ (car tup) (addtup (cdr tup)))))))
+
+(atom? (car '(Harry had a heap of apples)))         ; true
+(atom? (cdr '(Harry had a heap of apples)))         ; false
+(atom? (cdr '(Harry)))                              ; false
+(atom? (car (cdr '(swing low sweet cherry oat))))   ; true
+(atom? (car (cdr '(swing (low sweet) cherry oat)))) ; false
