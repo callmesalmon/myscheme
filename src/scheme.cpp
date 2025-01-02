@@ -118,9 +118,9 @@ void init() {
 void loadstd() {
     FILE *std;
 
-    std = fopen("std.scm" , "r");
+    std = fopen("scheme/std.scm" , "r");
     if (std == NULL) {
-        fprintf(stdout,"Error opening std.scm\n");
+        fprintf(stdout,"Error opening scheme/std.scm\n");
     }
     else {
         while ( peek(std)!=EOF ) {
