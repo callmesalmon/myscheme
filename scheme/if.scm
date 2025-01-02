@@ -1,9 +1,9 @@
-(define (bool v)
+(define (bool_to_str v)
     (if (boolean? v)
         (if (= v #t)
             "True"
             "False")
-        #f))
+        "Null"))
 
-(bool #t) ; "True"  (#t => "True")
-(bool #f) ; "False" (#f => "False")
+(bool_to_str #t) ; "True"  (#t => "True")
+(bool_to_str #f) ; "False" (#f => "False")

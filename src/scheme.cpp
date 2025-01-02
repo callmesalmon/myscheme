@@ -155,7 +155,7 @@ void sighandler(int signum)
 int main(int argc, char** argv) {
     if (argc > 1 && !strcmp(argv[1], "-d")) {
         printf("Debug mode!\n");
-        debug=1;
+        debug = 1;
     }
 
     printf("********************************\n\n\n"
@@ -165,7 +165,7 @@ int main(int argc, char** argv) {
     
     init();
 
-    if (argc > 1) {
+    if (argc > 1 && strcmp(argv[1], "-d")) {
         loadsrc(argv[1]);
         return 1;
     }
