@@ -10,8 +10,6 @@
 
 #include "object.hpp"
 
-
-
 extern object* empty_list;
 extern object* False;
 extern object* True;

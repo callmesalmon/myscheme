@@ -75,7 +75,7 @@ int peek_expected_delimiter(FILE *in, const char *expect) {
         }
         expect++;
     }
-    // fprintf(stderr,"no expected dilimiter followed!\nExit!\n");
+    // fprintf(stderr,"no expected delimiter followed!\nExit!\n");
     return 0;
 }
 

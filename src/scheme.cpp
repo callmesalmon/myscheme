@@ -123,11 +123,12 @@ void loadstd() {
         fprintf(stdout,"Error opening scheme/std.scm\n");
     }
     else {
-        while ( peek(std)!=EOF ) {
+        while (peek(std)!=EOF) {
             printer(eval(read(std), global_environment));
+            printf("\n");
         }
     }
-    fclose (std);
+    fclose(std);
 }
 
 void loadsrc(char *source) {
@@ -141,6 +142,7 @@ void loadsrc(char *source) {
     else {
         while (peek(src)!=EOF) {
             printer(eval(read(src), global_environment));
+            printf("\n");
         }
     }
     fclose(src);
