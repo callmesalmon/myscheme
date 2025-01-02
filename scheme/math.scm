@@ -25,7 +25,15 @@
 ; Here, we do a classic factorial
 ; implementation. Since ex. 5! ==
 ; 5 * 4!, we can recurse trough.
-(define (factorial n)
+(define (facto n)
     (if (= n 1) ; We don't wanna recurse forever.
       1
-      n * (factorial n - 1)))
+      n * (facto n - 1)))
+
+(define (test-math)
+    (square 5)
+    (even?  2)
+    (even?  3)
+    (min  1 5)
+    (max  1 5)
+    (facto  5))
