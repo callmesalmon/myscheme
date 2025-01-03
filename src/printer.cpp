@@ -29,9 +29,9 @@ void print_pair(object* obj) {
 
 void printer(object *obj) {
     char *str=NULL;
+    fprintf(stdout, "\n");
     // DEBUG("object type: %d",obj->type);
     // DEBUG("start to print!\n");
-    fprintf(stdout,"RESULT:\n");
 
     switch(obj->type) {
         case INTEGER:
@@ -94,7 +94,7 @@ void printer(object *obj) {
             fprintf(stdout,"**%s**",obj->data.warn.value);
             break;
         default:
-            fprintf(stderr,"Unknow type!\nExit!\n");
+            fprintf(stderr,"Unknown type!\nExit!\n");
             break;
     }
 }

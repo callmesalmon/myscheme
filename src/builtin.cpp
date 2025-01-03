@@ -300,3 +300,9 @@ object* eq_procedure(object* args) {
             return (obj1 == obj2) ? True : False;
     }
 }
+
+object* write_procedure(object* args) {
+    printer((object*)args->data.string.value);
+    return ok_symbol;
+}
+

@@ -9,6 +9,7 @@
 #include <ctype.h>
 
 #include "object.hpp"
+#include "printer.hpp"
 
 extern object* empty_list;
 extern object* False;
@@ -63,5 +64,6 @@ object* set_car_procedure(object* args);
 object* set_cdr_procedure(object* args);
 object* list_procedure(object* args);
 object* eq_procedure(object* args);
+object* write_procedure(object* args);
 
 #endif
