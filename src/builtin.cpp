@@ -306,3 +306,50 @@ object* write_procedure(object* args) {
     return ok_symbol;
 }
 
+object* typeof_procedure(object* args) {
+    const char *res;
+    DEBUG("args' type: %d\n", args->type);
+    switch (args->type) {
+        case 0: 
+            res = "<integer>\n";
+            break;
+        case 1:
+            res = "<real>\n";
+            break;
+        case 2: 
+            res = "<boolean>\n";
+            break;
+        case 3:
+            res = "<character>\n";
+            break;
+        case 4:
+            res = "<string>\n";
+            break;
+        case 5:        
+            res = "<pair>\n";
+            break;
+        case 6:
+            res = "<symbol>\n";
+            break;
+        case 7:
+            res = "<builtin_function>\n";
+            break;
+        case 8:       
+            res = "<compound_function\n>";
+            break;
+        case 9:
+            res = "<empty_list>\n";
+            break;
+        case 10:
+            res = "<warn>\n";
+            break;
+        case 11:
+            res = "<INPUT PORT>\n";
+            break;                  
+        default:                   
+            res = "<OUTPUT PORT>\n";
+            break;
+    }
+    DEBUG("evaluated type to: %s\n", res);
+    return (object*)res;
+}

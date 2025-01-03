@@ -86,8 +86,9 @@ void init() {
     add_function("eq?",eq_procedure);
 
 
-    add_function("char->integer",char_to_integer_procedure);
-    add_function("integer->char",integer_to_char_procedure);
+    add_function("typeof"        ,typeof_procedure);
+    add_function("char->integer" ,char_to_integer_procedure);
+    add_function("integer->char" ,integer_to_char_procedure);
     add_function("number->string",number_to_string_procedure);
     add_function("string->number",string_to_number_procedure);
     add_function("symbol->string",symbol_to_string_procedure);
