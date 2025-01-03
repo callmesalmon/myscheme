@@ -141,9 +141,9 @@
 
 
 ;;; write
-(define (newline) (display "\n"))
-(define print display)
-(define (println obj) (display obj)(newline))
+(define (newline) (write "\n"))
+(define print write)
+(define (println obj) (write obj)(newline))
   
 ;;; math
 (define (square x) (* x x))
@@ -151,8 +151,6 @@
 (define (inc x) (+ x 1))
 (define (dec x) (- x 1))
 (define (abs x) (if (> x 0) x (- x)))
-(define max (lambda (x y) (if (> x y) x y)))
-(define min (lambda (x y) (if (< x y) x y)))
 
 (define (expt b n)
   (define (expt-iter b counter product)
@@ -168,10 +166,6 @@
  
 
 ;;; list
-(define (atom? x)
-  (not (pair? x)))
-
-
 (define (assoc x y)
   (cond ((null? y) '())
         ((equal? x (caar y)) (car y))
