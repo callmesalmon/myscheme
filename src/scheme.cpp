@@ -1,5 +1,7 @@
 #include <scheme.hpp>
 
+#define VERSION "MyScheme 1.0.0"
+
 #define DEBUG(...)                   \
        do  {                         \
            if (debug==1) {           \
@@ -154,6 +156,10 @@ int main(int argc, char** argv) {
     if (argc > 1 && !strcmp(argv[1], "-d")) {
         printf("Debug mode!\n");
         debug = 1;
+    }
+    if (argc > 1 && !strcmp(argv[1], "-v")) {
+        printf("Version: %s\n", VERSION);
+        return 2;
     }
 
     printf("********************************\n\n\n"
