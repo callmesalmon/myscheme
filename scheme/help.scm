@@ -8,3 +8,4 @@
 (write "    myscm <args>"                                 )
 (write "FLAGS"                                            )
 (write "    -d: Enable debug mode."                       )
+(write "    -v: Print version and exit."                  )
