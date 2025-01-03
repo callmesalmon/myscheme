@@ -6,7 +6,11 @@
 
 ; Core functions:
 
-(define (_null x) (equal? x '()))
+(define (_null x) (eq? x '()))
+
+(define atom?
+ (lambda (x)
+    (and (not (pair? x)) (not (null? x)))))
 
 (define (_and x y)
   (cond (x (cond (y #t) (#t #f)))
