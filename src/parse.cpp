@@ -57,8 +57,7 @@ int get_expected_string(FILE *in, const char * expect) {
     while( *expect!='\0' ) {
         c=getc(in);
         if ( c != *expect ) {
-            // fprintf(stderr, "unexpected character!\nExit!\n");
-            // exit(1);
+            fprintf(stderr, "unexpected character!\nExit!\n");
             return 0;
         }
         expect++;
