@@ -8,6 +8,7 @@
        } while(0)
 
 extern int debug;
+extern int in_repl;
 
 
 void print_pair(object* obj) {
@@ -29,8 +30,11 @@ void print_pair(object* obj) {
 
 void printer(object *obj) {
     char *str=NULL;
-    // DEBUG("object type: %d",obj->type);
-    // DEBUG("start to print!\n");
+    if (in_repl) {
+        fprintf(stdout, "\n");
+    }
+    DEBUG("object type: %d\n",obj->type);
+    DEBUG("start to print!\n");
 
     switch(obj->type) {
         case INTEGER:
