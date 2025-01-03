@@ -23,7 +23,6 @@ object* load_procedure(object* args) {
     char *file=NULL;
     FILE *in=NULL;
     object* exp;
-    object* res;
 
     file=car(args)->data.string.value;
     in=fopen(file,"r");
@@ -32,11 +31,11 @@ object* load_procedure(object* args) {
     }
 
     while( (exp=read(in))!=NULL ) {
-        res=eval(exp,global_environment);
+        eval(exp,global_environment);
         printf("\n");
     }
     fclose(in);
-    return res;
+    return ok_symbol;
 }
 
 object* read_procedure(object* args) {

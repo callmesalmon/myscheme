@@ -338,11 +338,8 @@ object* read(FILE *in) {
         return make_warn("Read: invalid grammar!");
     }
     else {
-        exit(1);
-        // return make_warn("Read: invalid grammar!");
+        DEBUG("read: Reached end of file.\n");
+        return NULL;
     }
     return new_object();
-
-
-    
 }

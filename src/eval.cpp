@@ -261,11 +261,10 @@ object* eval(object* exp, object* env) {
 
     DEBUG("start to evaluate!\n");
 
-    while(1) {
+    while (1) {
 
         if ( is_self_value(exp) ) {
-            // DEBUG("eval: self_value: \n");
-            // get_type(exp->type);
+            DEBUG("eval: self_value: %d\n", exp->type);
             return exp;
         }
         else if ( is_variable(exp) ) {
@@ -273,11 +272,11 @@ object* eval(object* exp, object* env) {
             return loop_up_env(exp,env);
         }
         else if ( is_quote(exp) ) {
-            // DEBUG("eval: quote\n");
+            DEBUG("eval: quote\n");
             return content_of_quote(exp);
         }
         else if ( is_assignment(exp) ) {
-            // DEBUG("eval: assignment\n");
+            DEBUG("eval: assignment\n");
             return eval_assignment(exp,env);
         }
         else if ( is_def(exp) ) {
@@ -285,28 +284,28 @@ object* eval(object* exp, object* env) {
             return eval_def(exp,env);
         }
         else if ( is_if(exp) ) {
-            // DEBUG("eval: if\n");
+            DEBUG("eval: if\n");
             exp= is_true(eval(if_predicate(exp),env)) ? if_true(exp):if_false(exp);
         }
         else if ( is_begin(exp) ) {
-            // DEBUG("eval: begin\n");
+            DEBUG("eval: begin\n");
             exp = begin_body(exp);
             while( !is_last_exp(exp) ) {
-                // DEBUG("eval begin: is NOT last expression\n");
+                DEBUG("eval begin: is NOT last expression\n");
                 eval(first_exp(exp),env);
                 exp=rest_exp(exp);
             }
             exp=first_exp(exp);
         }
         else if( is_cond(exp) ) {
-            // DEBUG("eval: cond\n");
+            DEBUG("eval: cond\n");
             if ( is_empty_list(cond_body(exp)) ) {
                 return make_warn("Exception: invalid syntax (cond)");
             }
             exp= convert_to_if(cond_body(exp));
         }
         else if( is_let(exp) ) {
-            // DEBUG("eval: let\n");
+            DEBUG("eval: let\n");
             exp = make_function( make_lambda(let_parameters(exp),let_body(exp)),let_arguments(exp));
         }
         else if ( is_lambda(exp) ) {
@@ -314,7 +313,7 @@ object* eval(object* exp, object* env) {
             return make_compound_func(lambda_parameters(exp),lambda_body(exp),env);
         }
         else if ( is_and_or(exp) ) {
-            // DEBUG("eval: and / or\n");
+            DEBUG("eval: and / or\n");
             return eval_and_or((exp),env);
         }
         else if ( is_apply(exp) ) {
@@ -338,7 +337,7 @@ object* eval(object* exp, object* env) {
 
                 DEBUG("eval: compound function: type: %d\n",car(exp)->type);
                 while( !is_last_exp(exp) ) {
-                    // DEBUG("eval compound function: is NOT last expression , type: %d\n",cdr(exp)->type);
+                    DEBUG("eval compound function: is NOT last expression , type: %d\n",cdr(exp)->type);
                     eval(first_exp(exp),env);
                     exp=rest_exp(exp);
                 }
@@ -357,14 +356,21 @@ object* eval(object* exp, object* env) {
             exit(1);
         }
 
+        if (is_last_exp(exp)) {
+            DEBUG("eval: exp IS last expression!\n");
+            break;
+        }
+
         if (proc->type==WARN) {
+            DEBUG("return: proc\n");
             return proc;
         }
 
         if (args->type==WARN) {
+            DEBUG("return: args\n");
             return args;
         }
     }
-    
-    return exp;
+
+    return ok_symbol;
 }
