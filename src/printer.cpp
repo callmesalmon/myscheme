@@ -8,8 +8,6 @@
        } while(0)
 
 extern int debug;
-extern int in_repl;
-
 
 void print_pair(object* obj) {
     printer(obj->data.pair.car);
@@ -30,9 +28,6 @@ void print_pair(object* obj) {
 
 void printer(object *obj) {
     char *str=NULL;
-    if (in_repl) {
-        fprintf(stdout, "\n");
-    }
     DEBUG("object type: %d\n",obj->type);
     DEBUG("start to print!\n");
 

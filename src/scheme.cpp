@@ -10,7 +10,6 @@
        } while(0)
 
 int debug=0;
-int in_repl=0;
 
 
 #define add_function(s_name,f_name)   \
@@ -175,8 +174,6 @@ int main(int argc, char** argv) {
         loadsrc(argv[1]);
         return 1;
     }
-
-    in_repl = 1;
     
     while (true) {
         printf("> ");

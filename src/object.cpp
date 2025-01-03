@@ -347,7 +347,7 @@ void init_symbol() {
     quote_symbol=make_symbol("quote");
     define_symbol=make_symbol("define");
     set_symbol=make_symbol("set!");
-    ok_symbol=make_symbol("ok");
+    ok_symbol=make_symbol("\nok");
     if_symbol=make_symbol("if");
     lambda_symbol=make_symbol("lambda");
     begin_symbol=make_symbol("begin");
