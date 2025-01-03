@@ -1,4 +1,4 @@
-; This example was heavily inspired by Paul Graham blog 
+; This example was heavily inspired by Paul Graham's blog 
 ; (http://paulgraham.com/lisp.html)
 ; 
 ; Minimal lisp can be implemented in scheme using only:
