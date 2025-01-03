@@ -33,6 +33,7 @@ object* load_procedure(object* args) {
 
     while( (exp=read(in))!=NULL ) {
         res=eval(exp,global_environment);
+        printf("\n");
     }
     fclose(in);
     return res;

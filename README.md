@@ -14,3 +14,11 @@ sudo make
 ```console
 myscm <args>
 ```
+
+## Further help
+Open the repl in the source
+directory by running `myscm`
+with 0 arguments and type this:
+```scm
+(load "scheme/help.scm")
+```
