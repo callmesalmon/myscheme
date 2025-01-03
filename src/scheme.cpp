@@ -138,7 +138,7 @@ void loadsrc(char *source) {
     }
     else {
         while (peek(src)!=EOF) {
-            printer(eval(read(src), global_environment));
+            eval(read(src), global_environment);
             printf("\n");
         }
     }
