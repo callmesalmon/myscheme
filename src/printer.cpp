@@ -29,7 +29,6 @@ void print_pair(object* obj) {
 
 void printer(object *obj) {
     char *str=NULL;
-    fprintf(stdout, "\n");
     // DEBUG("object type: %d",obj->type);
     // DEBUG("start to print!\n");
 
