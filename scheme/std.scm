@@ -70,7 +70,7 @@
 (define (min a b)
     (if (< a b)
       a  ; A < B => A
-      b) ; A > B => B
+      b)) ; A > B => B
 
 ; Do a reverse implementation,
 ; since min is just !max we can
@@ -79,7 +79,7 @@
 (define (max a b)
     (if (= (min a b) b)
       a  ; MIN(A, B) == B? A
-      b) ; MIN(A, B) == A? B
+      b)) ; MIN(A, B) == A? B
 
 ; Here, we do a classic factorial
 ; implementation. Since ex. 5! ==
