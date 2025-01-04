@@ -153,13 +153,20 @@ void sighandler(int signum)
 }
 
 int main(int argc, char** argv) {
-    if (argc > 1 && !strcmp(argv[1], "-d")) {
-        printf("Debug mode!\n");
-        debug = 1;
-    }
-    if (argc > 1 && !strcmp(argv[1], "-v")) {
-        printf("Version: %s\n", VERSION);
-        return 2;
+    for (int i = 0; i < argc; i++) {
+        if (!strcmp(argv[i], "-d") || !strcmp(argv[i], "--debug")) {
+            printf("Debug mode!\n");
+            debug = 1;
+            if ((argc - 1) > i) {
+                loadsrc(argv[i + 1]);
+                return 1;
+            }
+            break;
+        }
+        if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) {
+            printf("Version: %s\n", VERSION);
+            return 2;
+        }
     }
 
     printf("********************************\n\n\n"
@@ -169,7 +176,7 @@ int main(int argc, char** argv) {
     
     init();
 
-    if (argc > 1 && strcmp(argv[1], "-d")) {
+    if (argc > 1 && debug == 0) {
         loadsrc(argv[1]);
         return 1;
     }
