@@ -116,36 +116,35 @@ void init() {
 }
 
 void loadstd() {
-    FILE *std;
+    FILE *in=NULL;
+    object* exp;
 
-    std = fopen("scheme/std.scm" , "r");
-    if (!std) {
-        fprintf(stdout,"Error opening scheme/std.scm\n");
+    in=fopen("scheme/std.scm","r");
+    if (in==NULL) {
+        fprintf(stdout, "Exception in load: Cannot load the stdlib (scheme/std.scm).");
     }
-    else {
-        while (peek(std)!=EOF) {
-            printer(eval(read(std), global_environment));
-            printf("\n");
-        }
+
+    while( (exp=read(in))!=NULL ) {
+        eval(exp,global_environment);
+        printf("\n");
     }
-    fclose(std);
+    fclose(in);
 }
 
 void loadsrc(char *source) {
-    FILE *src;
+    FILE *in=NULL;
+    object* exp;
 
-    src = fopen(source, "r");
-    if (!src) {
-        fprintf(stdout, "Error opening source file!!!\n");
-        return;
+    in=fopen(source,"r");
+    if (in==NULL) {
+        fprintf(stdout, "Exception in load: Cannot load the file.");
     }
-    else {
-        while (peek(src)!=EOF) {
-            eval(read(src), global_environment);
-            printf("\n");
-        }
+
+    while( (exp=read(in))!=NULL ) {
+        eval(exp,global_environment);
+        printf("\n");
     }
-    fclose(src);
+    fclose(in);
 }
 
 void sighandler(int signum)
