@@ -36,7 +36,7 @@
 (define (caddar x) (car (cdr (cdr (car x)))))
 
 (define (_assoc x y)
-  (cond ((equal? (caar y) x) (cadar y))
+  (cond ((eq? (caar y) x) (cadar y))
         (#t (_assoc x (cdr y)))))
 
 ; Having `_eval` implemented, we can evaluate any S-expression
@@ -46,25 +46,25 @@
     ((atom? e) (_assoc e a))
     ((atom? (car e))
      (cond
-       ((equal? (car e) 'quote) (cadr e))
-       ((equal? (car e) 'atom)  (atom?  (_eval (cadr e) a)))
-       ((equal? (car e) 'eq)    (equal?    (_eval (cadr e)  a)
+       ((eq? (car e) 'quote) (cadr e))
+       ((eq? (car e) 'atom)  (atom?  (_eval (cadr e) a)))
+       ((eq? (car e) 'eq)    (equal?    (_eval (cadr e)  a)
                                            (_eval (caddr e) a)))
-       ((equal? (car e) 'car)   (car    (_eval (cadr e) a)))
-       ((equal? (car e) 'cdr)   (cdr    (_eval (cadr e) a)))
-       ((equal? (car e) 'cons)  (cons   (_eval (cadr e) a)
+       ((eq? (car e) 'car)   (car    (_eval (cadr e) a)))
+       ((eq? (car e) 'cdr)   (cdr    (_eval (cadr e) a)))
+       ((eq? (car e) 'cons)  (cons   (_eval (cadr e) a)
                                      (_eval (caddr e) a)))
-       ((equal? (car e) 'cond)  (_evcon (cdr e) a))
+       ((eq? (car e) 'cond)  (_evcon (cdr e) a))
        (#t (_eval (cons (_assoc (car e) a)
                         (cdr e))
                   a))))
-    ((equal? (caar e) 'lambda)
+    ((eq? (caar e) 'lambda)
      (_eval (caddar e)
             (_append (_pair (cadar e) (_evlis (cdr e) a))
                      a)))))
 
 (define (_evcon c a)
-  (cond ( (equal? (_eval (caar c) a) '()) (_evcon (cdr c)   a))
+  (cond ( (eq? (_eval (caar c) a) '()) (_evcon (cdr c)   a))
         ('t                               (_eval  (cadar c) a))))
 
 (define (_evlis m a)
