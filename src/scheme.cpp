@@ -169,14 +169,15 @@ int main(int argc, char** argv) {
         }
     }
 
-    printf("********************************\n\n\n"
-        "             MyScheme              \n\n\n"
-        "          ctrl-d to exit.          \n\n\n"
-           "********************************\n");
     
     init();
 
     loadstd();
+
+    printf("********************************\n\n\n"
+        "             MyScheme              \n\n\n"
+        "          ctrl-d to exit.          \n\n\n"
+           "********************************\n");
 
     if (argc > 1 && debug == 0) {
         loadsrc(argv[1]);
