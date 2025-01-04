@@ -176,6 +176,8 @@ int main(int argc, char** argv) {
     
     init();
 
+    loadstd();
+
     if (argc > 1 && debug == 0) {
         loadsrc(argv[1]);
         return 1;
