@@ -4,9 +4,6 @@
 ; Minimal lisp can be implemented in scheme using only:
 ; `atom`, `car`, `cdr`, `cond`, `cons`, `eq` and `quote`
 
-; Stdlib:
-(load "scheme/std.scm")
-
 ; Core functions:
 
 (define (_null x) (eq? x '()))

@@ -1,5 +1,6 @@
 ; Oh and btw, you can load extern libraries,
-; let's try one! "scheme/std.scm", the stdlib.
+; let's try one! "scheme/std.scm", the stdlib
+; (even though it's preinstalled).
 (load "scheme/std.scm")
 
 ; Now, we can run an external function
