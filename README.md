@@ -9,19 +9,26 @@ But if you want to, you could install it, I guess.
 * g++
 
 ## Install
-```console
+```sh
 git clone https://github.com/ElisStaaf/myscheme scm
 cd scm
-sudo make
+
+./configure # Prebuild
+sudo make   # To build
+
+# NOTE: To exclude different functions
+#       of the interpreter, do:
+./configure --exclude debug # To exclude debugging
+./configure --exclude std   # To exclude stdlib loading
 ```
 Note: To run with a C++ compiler
 other than g++, run make like this:
-```console
+```sh
 make CC=<compiler>
 ```
 
 ## Run
-```console
+```sh
 myscm <args>
 ```
 
