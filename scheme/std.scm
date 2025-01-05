@@ -140,7 +140,7 @@
 
 
 ; write
-(define (newline) (write "\n"))
+(define (newline) (write ""))
 (define print write)
 (define (println obj) (write obj)(newline))
   
@@ -196,3 +196,22 @@
           (if (eqv? sexp old) new sexp))
           ((pair? sexp) (subst new old sexp))
           (else sexp))))
+
+; Help function
+(define (help)
+    (print "MYSCHEME"                                         )
+    (print "    MyScheme is a Scheme interpreter I hacked"    )
+    (print "    together in an afternoon. It's... Functional.")
+    (print "USAGE"                                            )
+    (print "    myscm <args>"                                 )
+    (print "FLAGS"                                            )
+    (print "    -d: Enable debug mode."                       )
+    (print "    -v: Print version and exit."                  )
+    (print "BUILD CONFIGURATION FLAGS"                        )
+    (print "    --repl: Only use repl"                        )
+    (print "    --exclude <opt>: Exclude <opt> from build."   )
+    (print "TODO"                                             )
+    (print "    - Add macro support."                         )
+    (print "    - Add user input support."                    )
+    (print "    - Add GUI support."                           )
+)
