@@ -89,7 +89,7 @@
 ; max(a, b) = !min(a, b)
 (define (max a b)
     (if (= (min a b) b)
-      a  ; MIN(A, B) == B? A
+      a   ; MIN(A, B) == B? A
       b)) ; MIN(A, B) == A? B
 
 ; Here, we do a classic factorial
@@ -97,7 +97,7 @@
 ; 5 * 4!, we can recurse trough.
 (define (facto n)
     (if (= n 1) ; We don't wanna recurse forever.
-      1
+      1         ; 1! = 1
       n * (facto n - 1)))
 
 (define (caar x) (car (car x))) 
@@ -133,19 +133,18 @@
 
 (define nil '())
 
-
-;;; bool
+; bool
 
 (define true #t)
 (define false #f)
 
 
-;;; write
+; write
 (define (newline) (write "\n"))
 (define print write)
 (define (println obj) (write obj)(newline))
   
-;;; math
+; math
 (define (square x) (* x x))
 (define (cube x)(* x x x))
 (define (inc x) (+ x 1))
@@ -165,10 +164,10 @@
  
  
 
-;;; list
+; list
 (define (assoc x y)
   (cond ((null? y) '())
-        ((equal? x (caar y)) (car y))
+        ((eq? x (caar y)) (car y))
         ((assoc x (cdr y)))))
 
 (define (assv x y)
