@@ -5,7 +5,7 @@ import os
 from sys import argv
 argc: int = len(argv)
 
-DEBUG_FILES: list[str] = ["src/debug.cpp", "scheme/debug.scm"]
+DEBUG_FILES: list[str] = ["include/debug.hpp", "scheme/debug.scm"]
 CONF_TEMPL: str = """/* THIS FILE WAS GENERATED
 BY ./configure, DO NOT MODIFY. */
 #pragma once

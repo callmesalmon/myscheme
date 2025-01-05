@@ -14,5 +14,5 @@
 *.tar
 
 # Debug files
-debug.cpp
+debug.hpp
 debug.scm
