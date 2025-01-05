@@ -12,6 +12,13 @@ BY ./configure, DO NOT MODIFY. */
 
 """
 
+# Exclusion macros
+DEBUG_EXCLUDE:  str = "#define DEBUG_EXCLUDE"
+STDLIB_EXCLUDE: str = "#define STDLIB_EXCLUDE"
+
+EXCLUDE_ALL = "\n".join(
+    [DEBUG_EXCLUDE, STDLIB_EXCLUDE])
+
 # Initialize debug
 def dbginit() -> None:
     for file in DEBUG_FILES:
@@ -21,9 +28,11 @@ def dbginit() -> None:
 def conf_exclude(exclude: str) -> str:
     match exclude:
         case "debug":
-            return "#define DEBUG_EXCLUDE"
+            return DEBUG_EXCLUDE
         case "std":
-            return "#define STDLIB_EXCLUDE"
+            return STDLIB_EXCLUDE
+        case "all":
+            return EXCLUDE_ALL
         case _:
             print("Invalid exclusion.")
             return ""
