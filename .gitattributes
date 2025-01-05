@@ -1,3 +1,4 @@
+*.[ch]         linguist-language=C        diff=C
 *.[ch]pp       linguist-language=C++      diff=C++
 *.scm          linguist-language=Scheme   diff=Scheme
 *.py           linguist-language=Python   diff=Python

@@ -178,6 +178,7 @@ int main(int argc, char** argv) {
     loadstd();
     #endif
 
+    clear();
     printf("********************************\n\n\n"
         "             MyScheme              \n\n\n"
         "          ctrl-d to exit.          \n\n\n"

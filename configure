@@ -28,7 +28,6 @@ def conf_exclude(exclude: str) -> str:
             print("Invalid exclusion.")
             return ""
 
-
 def confinit() -> None:
     conf: str = CONF_TEMPL
     for flag in argv:
@@ -37,7 +36,6 @@ def confinit() -> None:
                 conf += (conf_exclude(argv[argv.index(flag)+1]) + "\n")
     with open("include/config.hpp", "w") as f:
         f.write(conf)
-        
         
 def main() -> None:
     dbginit()

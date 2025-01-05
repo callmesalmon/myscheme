@@ -17,6 +17,9 @@
 #include "io.hpp"
 #include "config.hpp"
 
+/* C library */
+#include "cterm.h"
+
 
 extern object* empty_list;
 extern object* False;
