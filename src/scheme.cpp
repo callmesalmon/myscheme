@@ -158,10 +158,12 @@ int main(int argc, char** argv) {
         if (!strcmp(argv[i], "-d") || !strcmp(argv[i], "--debug")) {
             printf("Debug mode!\n");
             debug = 1;
+            #ifndef ONLY_REPL
             if ((argc - 1) > i) {
                 loadsrc(argv[i + 1]);
                 return 1;
             }
+            #endif
             break;
         }
         #endif
@@ -190,10 +192,12 @@ int main(int argc, char** argv) {
         DBG_MAIN;
     #endif
 
+    #ifndef ONLY_REPL
     if (argc > 1 && debug == 0) {
         loadsrc(argv[1]);
         return 1;
     }
+    #endif
     
     while (true) {
         printf("> ");

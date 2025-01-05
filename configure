@@ -34,6 +34,8 @@ def confinit() -> None:
         match flag:
             case "--exclude":
                 conf += (conf_exclude(argv[argv.index(flag)+1]) + "\n")
+            case "--repl":
+                conf += "#define ONLY_REPL\n"
     with open("include/config.hpp", "w") as f:
         f.write(conf)
         

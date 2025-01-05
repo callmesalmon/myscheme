@@ -20,6 +20,9 @@ sudo make   # To build
 #       of the interpreter, do:
 ./configure --exclude debug # To exclude debugging
 ./configure --exclude std   # To exclude stdlib loading
+
+# NOTE: To compile with only repl, do:
+./configure --repl
 ```
 Note: To run with a C++ compiler
 other than g++, run make like this:
@@ -42,5 +45,5 @@ Open the repl in the source directory
 by running `myscm` with 0 arguments
 and type this:
 ```scm
-(load "scheme/help.scm")
+(help)
 ```
