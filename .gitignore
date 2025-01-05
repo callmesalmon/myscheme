@@ -12,3 +12,7 @@
 *.zip
 *.tar.gz
 *.tar
+
+# Debug files
+debug.cpp
+debug.scm

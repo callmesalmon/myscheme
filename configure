@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import os
+
+from sys import argv
+argc: int = len(argv)
+
+DEBUG_FILES: list[str] = ["src/debug.cpp", "scheme/debug.scm"]
+CONF_TEMPL = """/* THIS FILE WAS GENERATED
+BY ./configure, DO NOT MODIFY. */
+#pragma once
+
+"""
+
+# Initialize debug
+def dbginit() -> None:
+    for file in DEBUG_FILES:
+        with open(file, "w+") as f:
+            f.close()
+
+def conf_exclude(exclude: str) -> str:
+    match exclude:
+        case "debug":
+            return "#define DEBUG_EXCLUDE"
+        case "std":
+            return "#define STDLIB_EXCLUDE"
+        case _:
+            print("Invalid exclusion.")
+            return ""
+
+
+def confinit() -> None:
+    conf: str = CONF_TEMPL
+    for flag in argv:
+        match flag:
+            case "--exclude":
+                conf += (conf_exclude(argv[argv.index(flag)+1]) + "\n")
+    with open("include/config.hpp", "w") as f:
+        f.write(conf)
+        
+        
+def main() -> None:
+    dbginit()
+    confinit()
+
+if __name__ == "__main__":
+    main()

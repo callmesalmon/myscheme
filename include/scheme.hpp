@@ -15,6 +15,7 @@
 #include "printer.hpp"
 #include "env.hpp"
 #include "io.hpp"
+#include "config.hpp"
 
 
 extern object* empty_list;

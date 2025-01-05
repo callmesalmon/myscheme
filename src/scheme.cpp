@@ -154,6 +154,7 @@ void sighandler(int signum)
 
 int main(int argc, char** argv) {
     for (int i = 0; i < argc; i++) {
+        #ifndef DEBUG_EXCLUDE
         if (!strcmp(argv[i], "-d") || !strcmp(argv[i], "--debug")) {
             printf("Debug mode!\n");
             debug = 1;
@@ -163,6 +164,7 @@ int main(int argc, char** argv) {
             }
             break;
         }
+        #endif
         if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) {
             printf("Version: %s\n", VERSION);
             return 2;
@@ -172,7 +174,9 @@ int main(int argc, char** argv) {
     
     init();
 
+    #ifndef STDLIB_EXCLUDE
     loadstd();
+    #endif
 
     printf("********************************\n\n\n"
         "             MyScheme              \n\n\n"
