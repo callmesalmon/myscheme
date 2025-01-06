@@ -1,8 +1,8 @@
 .DEFAULT_GOAL=/usr/local/bin/myscm
 .PHONY: all
 
-CC          = g++
-CFLAGS      = -I./include
+include config.mk
+
 CPP_OBJS    = $(wildcard src/*.cpp)
 CPP_HEADERS = $(wildcard include/*.hpp)
 C_HEADERS   = $(wildcard include/*.h)

@@ -6,9 +6,16 @@ from sys import argv
 argc: int = len(argv)
 
 DEBUG_FILES: list[str] = ["include/debug.hpp", "scheme/debug.scm"]
-CONF_TEMPL: str = """/* THIS FILE WAS GENERATED
+CPP_CONF_TEMPL: str = """/* THIS FILE WAS GENERATED
 BY ./configure, DO NOT MODIFY. */
 #pragma once
+
+"""
+MK_CONF_TEMPL: str = """# THIS FILE WAS GENERATED
+#BY ./configure, DO NOT MODIFY
+
+CC=g++
+CFLAGS=-I./include
 
 """
 
@@ -37,8 +44,8 @@ def conf_exclude(exclude: str) -> str:
             print("Invalid exclusion.")
             return ""
 
-def confinit() -> None:
-    conf: str = CONF_TEMPL
+def cpp_confinit() -> None:
+    conf: str = CPP_CONF_TEMPL
     for flag in argv:
         match flag:
             case "--exclude":
@@ -48,9 +55,21 @@ def confinit() -> None:
     with open("include/config.hpp", "w") as f:
         f.write(conf)
         
+def mk_confinit() -> None:
+    conf: str = MK_CONF_TEMPL
+    for flag in argv:
+        match flag:
+            case "--clang":
+                conf += "CC=clang\n"
+            case "--cflags":
+                conf += "CFLAGS=" + argv[argv.index(flag)+1] + "\n"
+    with open("config.mk", "w") as f:
+        f.write(conf)
+
 def main() -> None:
     dbginit()
-    confinit()
+    cpp_confinit()
+    mk_confinit()
 
 if __name__ == "__main__":
     main()
