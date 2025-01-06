@@ -1,5 +1,5 @@
 ; --- MyScheme std.scm ---
-; This is the stdandard library for MyScheme.
+; This is the standard library for MyScheme.
 ; Or, atleast it *can* be. You can include it
 ; in your project like any other thing in the
 ; scheme/ directory, yet this is special.
