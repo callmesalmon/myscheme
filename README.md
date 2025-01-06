@@ -29,11 +29,6 @@ sudo make   # To build
 ./configure --clang          # To compile with clang
 ./configure --cflags <flags> # To change cflags
 ```
-Note: To run with a C++ compiler
-other than g++, run make like this:
-```sh
-make CC=<compiler>
-```
 
 ## Run
 ```sh
