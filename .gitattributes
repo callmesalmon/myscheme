@@ -2,5 +2,5 @@
 *.[ch]pp       linguist-language=C++      diff=C++
 *.scm          linguist-language=Scheme   diff=Scheme
 *.py           linguist-language=Python   diff=Python
-configure      linguist-language=Python   diff=Python
+./configure    linguist-language=Python   diff=Python
 Makefile       linguist-language=Makefile diff=Makefile

@@ -9,7 +9,7 @@ insert_final_newline = false
 indent_style = space
 indent_size = 4
 
-[{config.*}]
+[config.*]
 insert_final_newline = true
 
 [{*.py,configure}]
