@@ -23,6 +23,11 @@ sudo make   # To build
 
 # NOTE: To compile with only repl, do:
 ./configure --repl
+
+# NOTE: To compile with clang or change
+#       the cflags, do:
+./configure --clang          # To compile with clang
+./configure --cflags <flags> # To change cflags
 ```
 Note: To run with a C++ compiler
 other than g++, run make like this:
