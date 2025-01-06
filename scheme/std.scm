@@ -131,19 +131,25 @@
 (define (cdddar x) (cdr (cdr (cdr (car x))))) 
 (define (cddddr x) (cdr (cdr (cdr (cdr x))))) 
 
-(define nil '())
+; null
+(define null '())
+
+; python-esque null
+(define None '())
 
 ; bool
-
 (define true #t)
 (define false #f)
 
+; python-esque bool
+(define True  #t)
+(define False #f)
 
 ; write
 (define (newline) (write ""))
 (define print write)
 (define (println obj) (write obj)(newline))
-  
+
 ; math
 (define (square x) (* x x))
 (define (cube x)(* x x x))
@@ -162,8 +168,6 @@
  
 (define (gcd a b) (if (= b 0) a (gcd b (remainder a b))))
  
- 
-
 ; list
 (define (assoc x y)
   (cond ((null? y) '())
@@ -197,7 +201,7 @@
           ((pair? sexp) (subst new old sexp))
           (else sexp))))
 
-; Help function
+; help function
 (define (help)
     (print "MYSCHEME"                                         )
     (print "    MyScheme is a Scheme interpreter I hacked"    )
@@ -213,5 +217,4 @@
     (print "TODO"                                             )
     (print "    - Add macro support."                         )
     (print "    - Add user input support."                    )
-    (print "    - Add GUI support."                           )
-)
+    (print "    - Add GUI support."                           ))
