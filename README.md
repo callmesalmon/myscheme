@@ -6,7 +6,8 @@ But if you want to, you could install it, I guess.
 ## Prerequisites
 * git
 * make
-* g++
+* g++ (or clang)
+* python3
 
 ## Install
 ```sh
