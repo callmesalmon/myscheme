@@ -214,6 +214,8 @@
     (print "BUILD CONFIGURATION FLAGS"                        )
     (print "    --repl: Only use repl"                        )
     (print "    --exclude <opt>: Exclude <opt> from build."   )
+    (print "    --clang: Compile with Clang"                  )
+    (print "    --cflags <flags>: Compile with <flags>"       )
     (print "TODO"                                             )
     (print "    - Add macro support."                         )
     (print "    - Add user input support."                    )
