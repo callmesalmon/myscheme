@@ -12,7 +12,7 @@ BY ./configure, DO NOT MODIFY. */
 
 """
 MK_CONF_TEMPL: str = """# THIS FILE WAS GENERATED
-# BY ./configure, DO NOT MODIFY
+# BY ./configure, DO NOT MODIFY.
 
 CC     = g++
 CFLAGS = -I./include
@@ -27,7 +27,7 @@ EXCLUDE_ALL = "\n".join(
     [DEBUG_EXCLUDE, STDLIB_EXCLUDE])
 
 # Initialize debug
-def dbginit() -> None:
+def dbg_init() -> None:
     for file in DEBUG_FILES:
         with open(file, "w+") as f:
             f.close()
@@ -67,7 +67,7 @@ def mk_confinit() -> None:
         f.write(conf)
 
 def main() -> None:
-    dbginit()
+    dbg_init()
     cpp_confinit()
     mk_confinit()
 
