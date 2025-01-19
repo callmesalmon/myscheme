@@ -1,7 +1,8 @@
 # MyScheme
 MyScheme is a Scheme interpreter that... Definitely exists, alright.
 It gets the basics done but it doesn't include *everything*, per se.
-But if you want to, you could install it, I guess.
+But if you want to, you could install it, I guess. I made a
+[blog post](https://elisstaaf.github.io/ramblings/2025/01/07/scheme.html) about it.
 
 ## Prerequisites
 * git
