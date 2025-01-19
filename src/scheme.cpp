@@ -1,4 +1,4 @@
-#include <scheme.hpp>
+#include <scheme.h>
 
 #define VERSION "MyScheme 1.0.0"
 

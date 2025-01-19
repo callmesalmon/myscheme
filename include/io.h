@@ -1,5 +1,5 @@
-#ifndef IO_HPP
-#define IO_HPP
+#ifndef IO_H
+#define IO_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,9 +8,9 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#include "object.hpp"
-#include "parse.hpp"
-#include "eval.hpp"
+#include "object.h"
+#include "parse.h"
+#include "eval.h"
 
 extern object* empty_list;
 extern object* False;

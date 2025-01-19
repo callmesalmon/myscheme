@@ -1,3 +1,3 @@
-#include <macro.hpp>
+#include <macro.h>
 
 /* Here there be dragons... */

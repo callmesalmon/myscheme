@@ -1,5 +1,5 @@
-#ifndef EVAL_HPP
-#define EVAL_HPP
+#ifndef EVAL_H
+#define EVAL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,9 +8,9 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#include "object.hpp"
-#include "builtin.hpp"
-#include "env.hpp"
+#include "object.h"
+#include "builtin.h"
+#include "env.h"
 
 extern object* empty_list;
 extern object* False;

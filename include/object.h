@@ -1,5 +1,5 @@
-#ifndef OBJECT_HPP
-#define OBJECT_HPP
+#ifndef OBJECT_H
+#define OBJECT_H
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,5 +1,5 @@
-#ifndef SCHEME_HPP
-#define SCHEME_HPP
+#ifndef SCHEME_H
+#define SCHEME_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,14 +8,14 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#include "object.hpp"
-#include "util.hpp"
-#include "eval.hpp"
-#include "parse.hpp"
-#include "printer.hpp"
-#include "env.hpp"
-#include "io.hpp"
-#include "config.hpp"
+#include "object.h"
+#include "util.h"
+#include "eval.h"
+#include "parse.h"
+#include "printer.h"
+#include "env.h"
+#include "io.h"
+#include "config.h"
 
 /* C library */
 #include "cterm.h"

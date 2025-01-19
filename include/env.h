@@ -1,5 +1,5 @@
-#ifndef ENV_HPP
-#define ENV_HPP
+#ifndef ENV_H
+#define ENV_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#include "object.hpp"
+#include "object.h"
 
 extern object* empty_list;
 extern object* global_environment;

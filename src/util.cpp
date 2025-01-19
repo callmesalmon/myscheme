@@ -1,3 +1,3 @@
-#include <util.hpp>
+#include <util.h>
 
 /* Here there be dragons... */

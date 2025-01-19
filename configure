@@ -52,7 +52,7 @@ def cpp_confinit() -> None:
                 conf += (conf_exclude(argv[argv.index(flag)+1]) + "\n")
             case "--repl":
                 conf += "#define ONLY_REPL\n"
-    with open("include/config.hpp", "w") as f:
+    with open("include/config.h", "w") as f:
         f.write(conf)
         
 def mk_confinit() -> None:

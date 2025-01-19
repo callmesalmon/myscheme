@@ -1,5 +1,5 @@
-#ifndef BUILTIN_HPP
-#define BUILTIN_HPP
+#ifndef BUILTIN_H
+#define BUILTIN_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#include "object.hpp"
-#include "printer.hpp"
+#include "object.h"
+#include "printer.h"
 
 extern object* empty_list;
 extern object* False;

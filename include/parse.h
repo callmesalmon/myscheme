@@ -1,5 +1,5 @@
-#ifndef PRINTER_HPP
-#define PRINTER_HPP
+#ifndef PARSE_H
+#define PARSE_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <ctype.h>
 
-#include "object.hpp"
+#include "object.h"
 
 extern object* empty_list;
 extern object* False;
@@ -31,7 +31,7 @@ extern object* apply_symbol;
 extern object* empty_environment;
 extern object* global_environment;
 
-void print_pair(object* obj);
-void printer(object *obj);
+object* read (FILE* in);
+char peek(FILE* in);
 
 #endif
