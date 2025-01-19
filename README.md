@@ -7,7 +7,7 @@ But if you want to, you could install it, I guess. I made a
 ## Prerequisites
 * git
 * make
-* g++ (or clang)
+* clang (or gcc)
 * python3
 
 ## Install
@@ -26,9 +26,9 @@ sudo make   # To build
 # NOTE: To compile with only repl, do:
 ./configure --repl
 
-# NOTE: To compile with clang or change
+# NOTE: To compile with gcc or change
 #       the cflags, do:
-./configure --clang          # To compile with clang
+./configure --gcc            # To compile with gcc
 ./configure --cflags <flags> # To change cflags
 ```
 

@@ -1,6 +1,6 @@
 # THIS FILE WAS GENERATED
-# BY ./configure, DO NOT MODIFY
+# BY ./configure, DO NOT MODIFY.
 
-CC     = g++
+CC     = clang
 CFLAGS = -I./include
 

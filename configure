@@ -14,7 +14,7 @@ BY ./configure, DO NOT MODIFY. */
 MK_CONF_TEMPL: str = """# THIS FILE WAS GENERATED
 # BY ./configure, DO NOT MODIFY.
 
-CC     = g++
+CC     = clang
 CFLAGS = -I./include
 
 """
@@ -59,8 +59,8 @@ def mk_confinit() -> None:
     conf: str = MK_CONF_TEMPL
     for flag in argv:
         match flag:
-            case "--clang":
-                conf += "CC = clang\n"
+            case "--gcc":
+                conf += "CC = gcc\n"
             case "--cflags":
                 conf += "CFLAGS = " + argv[argv.index(flag)+1] + "\n"
     with open("config.mk", "w") as f:
