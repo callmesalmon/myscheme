@@ -43,9 +43,8 @@ ChezScheme, so you might be a bit confused when seeing the
 examples. But if you want to, they're [here](/scheme).
 
 ## Further help
-Open the repl in the source directory 
-by running `myscm` with 0 arguments
+Open the repl by running `myscm` with 0 arguments
 and type this:
-```scm
+```scheme
 (help)
 ```
