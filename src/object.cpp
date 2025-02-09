@@ -155,14 +155,14 @@ object* make_symbol(const char* buffer) {
     
     object *temp_table=symbol_table;
     
-    // printf("start to make symbol , first to look up in the symbol table!\n");
+    DEBUG("start to make symbol , firstly look up the symbol table!\n");
     while(  !is_empty_list(temp_table) ) {
         if (   !strcmp(buffer,car(temp_table)->data.symbol.value)    ) {
             return car(temp_table);
         }
         temp_table=cdr(temp_table);
     }
-    // printf("second to make new symbol!\n");
+    DEBUG("make new symbol!\n");
     temp=new_object();
     temp->type=SYMBOL;
     temp->data.symbol.value=(char *)malloc(sizeof(char)*(strlen(buffer)+1));
@@ -171,8 +171,8 @@ object* make_symbol(const char* buffer) {
         exit(1);
     }
     strcpy(temp->data.symbol.value,buffer);
-    // fprintf(stdout,"buffer:%s!\n",buffer);
-    // fprintf(stdout,"object:%s!\n",temp->data.string.value);
+    DEBUG("buffer:%s!\n",buffer);
+    DEBUG("object:%s!\n",temp->data.string.value);
     symbol_table = cons(temp, symbol_table);
     return temp;
 }
@@ -337,17 +337,17 @@ void init_symbol() {
 
     False=new_object();
     False->type=BOOLEAN;
-    False->data.boolean.value='f';
+    False->data.boolean.value='f'; // #f
     
     True=new_object();
     True->type=BOOLEAN;
-    True->data.boolean.value='t';
+    True->data.boolean.value='t'; // #t
 
     symbol_table=empty_list;
     quote_symbol=make_symbol("quote");
     define_symbol=make_symbol("define");
     set_symbol=make_symbol("set!");
-    ok_symbol=make_symbol("\nok");
+    ok_symbol=make_symbol("\nok"); // We do "\n" (hex: 0x0a) for the REPL.
     if_symbol=make_symbol("if");
     lambda_symbol=make_symbol("lambda");
     begin_symbol=make_symbol("begin");
