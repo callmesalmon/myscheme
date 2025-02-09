@@ -38,8 +38,8 @@ object* loop_up_env(object* var, object* env) {
         }
         env=enclosing_env(env);
     }
-    // fprintf(stderr," unbound variable\n");
-    // exit(1);
+ // fprintf(stderr," unbound variable\n");
+ // exit(1);
     return make_warn("unbound variable");
 }
 
@@ -75,8 +75,8 @@ int set_var_val(object* var, object* val, object* env) {
         }
         env=enclosing_env(env);
     }
-    // fprintf(stderr,"unbound variable\n");
-    // exit(1);
+ // fprintf(stderr,"unbound variable\n");
+ // exit(1);
     return 0;
 }
 
