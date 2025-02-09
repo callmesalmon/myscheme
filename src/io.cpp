@@ -89,9 +89,9 @@ object* close_output_port_procedure(object* args) {
 }    
 
 object* is_input_port_procedure(object* args) {
-    return is_input_port(car(args))?True:False;
+    return is_input_port(car(args)) ? True : False;
 }
 
 object* is_output_port_procedure(object* args) {
-    return is_output_port(car(args))?True:False;
+    return is_output_port(car(args)) ? True : False;
 }
