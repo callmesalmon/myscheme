@@ -78,15 +78,19 @@
             "False")
         "Null"))
 
+; Smallest number out
+; of a and b, e.g:
+; if a > b b, a
 (define (min a b)
     (if (< a b)
-      a  ; A < B => A
+      a   ; A < B => A
       b)) ; A > B => B
 
 ; Do a reverse implementation,
-; since min is just !max we can
-; flip over min to be max, E.G:
-; max(a, b) = !min(a, b)
+; since min is just -max we can
+; flip over min to be max,
+; e.g: (in math notation)
+; max(a, b) = -min(a, b)
 (define (max a b)
     (if (= (min a b) b)
       a   ; MIN(A, B) == B? A
@@ -96,9 +100,9 @@
 ; implementation. Since ex. 5! ==
 ; 5 * 4!, we can recurse trough.
 (define (facto n)
-    (if (= n 1) ; We don't wanna recurse forever.
-      1         ; 1! = 1
-      n * (facto n - 1)))
+    (if (= n 1)           ; We don't wanna recurse forever.
+      1                   ; 1! = 1
+      n * (facto n - 1))) ; ex. 5! = 5 * 4! = 5 * 4 * 3! = ...
 
 (define (caar x) (car (car x)))
 (define (cadr x) (car (cdr x)))
@@ -142,20 +146,22 @@
 (define false #f)
 
 ; python-esque bool
+; (AKA a terrible bool, yet it's
+; popular...)
 (define True  #t)
 (define False #f)
 
 ; write
-(define (newline) (write ""))
-(define print write)
-(define (println obj) (write obj)(newline))
+(define (newline) (write ""))               ; \n (hex: 0x0a)
+(define print write)                        ; alias
+(define (println obj) (write obj)(newline)) ; obj + 0x0a
 
 ; math
-(define (square x) (* x x))
-(define (cube x)(* x x x))
-(define (inc x) (+ x 1))
-(define (dec x) (- x 1))
-(define (abs x) (if (> x 0) x (- x)))
+(define (square x) (* x x))           ; x^2 (pow(x, 2))
+(define (cube x)(* x x x))            ; x^3 (pow(x, 3))
+(define (inc x) (+ x 1))              ; x+1 (x++)
+(define (dec x) (- x 1))              ; x-1 (x--)
+(define (abs x) (if (> x 0) x (- x))) ; if x >= 0 x, -x
 
 (define (expt b n)
   (define (expt-iter b counter product)
@@ -166,7 +172,9 @@
                    (* b product))))
   (expt-iter b n 1))
 
-(define (gcd a b) (if (= b 0) a (gcd b (remainder a b))))
+(define (gcd a b)
+  (if (= b 0) a
+    (gcd b (remainder a b))))
 
 ; list
 (define (assoc x y)
@@ -201,7 +209,9 @@
           ((pair? sexp) (subst new old sexp))
           (else sexp))))
 
-; help function
+; help function,
+; run in repl using
+; ``(help)``.
 (define (help)
     (print "MYSCHEME"                                         )
     (print "    MyScheme is a Scheme interpreter I hacked"    )
