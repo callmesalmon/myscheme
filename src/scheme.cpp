@@ -56,7 +56,7 @@ int debug=0;
         else {                      \
             printf("OUTPUT PORT\n");\
         }
-    
+
 void init() {
 
     init_symbol();
@@ -173,7 +173,6 @@ int main(int argc, char** argv) {
         }
     }
 
-    
     init();
 
     #ifndef STDLIB_EXCLUDE
@@ -198,12 +197,12 @@ int main(int argc, char** argv) {
         return 1;
     }
     #endif
-    
+
     while (true) {
         printf("> ");
         printer(eval(read(stdin), global_environment));
         printf("\n");
     }
-        
+
     return 0;
 }
