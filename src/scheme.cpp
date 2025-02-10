@@ -13,6 +13,7 @@ int debug=0;
 
 #define can_load     (argc > 1 && debug == 0)
 #define not_end(i, l) ((l - 1) > l)
+#define flagzone for (int i = 0; i < argc; i++)
 #define flag(x, y)   if (!strcmp(argv[i], x) || !strcmp(argv[i], y))
 
 #define add_function(s_name,f_name)   \
@@ -156,7 +157,7 @@ void sighandler(int signum)
 }
 
 int main(int argc, char** argv) {
-    for (int i = 0; i < argc; i++) {
+    flagzone {
         #ifndef DEBUG_EXCLUDE
         flag("-d", "--debug") {
             printf("Debug mode!\n");
