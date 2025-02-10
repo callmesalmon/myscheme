@@ -11,6 +11,9 @@
 
 int debug=0;
 
+#define can_load     (argc > 1 && debug == 0)
+#define not_end(i, l) ((l - 1) > l)
+#define flag(x, y)   if (!strcmp(argv[i], x) || !strcmp(argv[i], y))
 
 #define add_function(s_name,f_name)   \
         def_var_val(make_symbol(s_name), make_builtin_procedure(f_name), global_environment);
@@ -155,11 +158,11 @@ void sighandler(int signum)
 int main(int argc, char** argv) {
     for (int i = 0; i < argc; i++) {
         #ifndef DEBUG_EXCLUDE
-        if (!strcmp(argv[i], "-d") || !strcmp(argv[i], "--debug")) {
+        flag("-d", "--debug") {
             printf("Debug mode!\n");
             debug = 1;
             #ifndef ONLY_REPL
-            if ((argc - 1) > i) {
+            if not_end(i, argc) {
                 loadsrc(argv[i + 1]);
                 return 1;
             }
@@ -167,7 +170,7 @@ int main(int argc, char** argv) {
             break;
         }
         #endif
-        if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) {
+        flag("-d", "--debug") {
             printf("Version: %s\n", VERSION);
             return 2;
         }
@@ -192,7 +195,7 @@ int main(int argc, char** argv) {
     #endif
 
     #ifndef ONLY_REPL
-    if (argc > 1 && debug == 0) {
+    if can_load {
         loadsrc(argv[1]);
         return 1;
     }
