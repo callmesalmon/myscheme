@@ -2,7 +2,7 @@
 MyScheme is a Scheme interpreter that... Definitely exists, alright.
 It gets the basics done but it doesn't include *everything*, per se.
 But if you want to, you could install it, I guess. I made a
-[blog post](https://elisstaaf.github.io/ramblings/2025/01/07/scheme.html) about it.
+[blog post](https://callmesalmon.github.io/ramblings/2025/01/07/scheme.html) about it.
 
 ## Prerequisites
 * git
@@ -12,7 +12,7 @@ But if you want to, you could install it, I guess. I made a
 
 ## Install
 ```sh
-git clone https://github.com/ElisStaaf/myscheme scm
+git clone https://github.com/callmesalmon/myscheme scm
 cd scm
 
 ./configure # Prebuild
