@@ -1,13 +1,5 @@
 ; --- MyScheme std.scm ---
 ; This is the standard library for MyScheme.
-; Or, atleast it *can* be. You can include it
-; in your project like any other thing in the
-; scheme/ directory, yet this is special.
-; If you want the best experience with
-; MyScheme, please Copy-Paste the
-; following into your project:
-;
-;     (load "scheme/std.scm")
 
 (define zero 0)
 
