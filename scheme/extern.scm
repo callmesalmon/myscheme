@@ -4,14 +4,14 @@
 (load "scheme/std.scm")
 
 ; Now, we can run an external function
-; like ``print``!
-(print "Hello World!")
+; like ``writeln``!
+(writeln "Hello World!")
 
 ; Or maybe ``zero?``?
-(print (bool_to_str (zero? 0)))
-(print (bool_to_str (zero? 1)))
+(writeln (bool_to_str (zero? 0)))
+(writeln (bool_to_str (zero? 1)))
 
 ; Or possibly even ``even``! See
 ; what I did there? Clever, right?
-(print (bool_to_str (even? 777)))
-(print (bool_to_str (even? 778)))
+(writeln (bool_to_str (even? 777)))
+(writeln (bool_to_str (even? 778)))

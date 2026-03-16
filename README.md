@@ -30,9 +30,21 @@ myscm <args>
 ```
 
 ## Examples
-By the way, MyScheme is a *teeny* bit different than... Let's say
-ChezScheme, so you might be a bit confused when seeing the examples. But if
-you want to, they're [here](/scheme).
+``hello_world``:
+```scheme
+(writeln "Hello, World!")
+```
+``factorial``:
+```scheme
+(define (facto n)
+    (if (= n 1)
+      1
+      n * (facto n - 1)))
+```
+More examples found [here](/scheme)
+
+(By the way, MyScheme is a *teeny* bit different than... Let's say
+ChezScheme, so you might be a bit confused when seeing the examples...)
 
 ## Further help
 Open the repl by running `myscm` with 0 arguments

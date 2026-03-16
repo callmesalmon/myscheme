@@ -56,7 +56,7 @@
       ((null? tup) 0)
       (else (o+ (car tup) (addtup (cdr tup)))))))
 
-; Useful for doing print
+; Useful for doing write
 ; operations on booleans,
 ; e.g this:
 ; (define bool1 (zero? 0))
@@ -145,9 +145,9 @@
 
 ; write
 (define (newline) (write "\n"))                   ; \n (hex: 0x0a)
-(define print write)                              ; alias
-(define (println obj)
-  (write obj) (write (newline))) ; obj + 0x0a
+(define (writeln obj)
+  (write obj)
+  (newline)) ; obj + 0x0a
 
 ; math
 (define (square x) (* x x))           ; x^2 (pow(x, 2))
@@ -206,16 +206,16 @@
 ; run in repl using
 ; ``(help)``.
 (define (help)
-    (print "MYSCHEME\n")
-    (print "MyScheme is a Scheme interpreter I hacked\n")
-    (print "together in a month. It's functional enough.\n")
-    (print "USAGE\n")
-    (print "    myscm <args>\n")
-    (print "FLAGS\n")
-    (print "    -d: Enable debug mode.\n")
-    (print "    -v: Print version and exit.\n")
-    (print "    -n: Do NOT use stdlib.\n")
-    (print "TODO")
-    (print "    - Add macro support.\n")
-    (print "    - Add user input support.\n")
-    (print "    - Add GUI support.\n"))
+    (writeln "MYSCHEME")
+    (writeln "MyScheme is a Scheme interpreter I hacked")
+    (writeln "together in a month. It's functional enough.")
+    (writeln "USAGE")
+    (writeln "    myscm <args>")
+    (writeln "FLAGS")
+    (writeln "    -d: Enable debug mode.")
+    (writeln "    -v: Print version and exit.")
+    (writeln "    -n: Do NOT use stdlib.")
+    (writeln "TODO")
+    (writeln "    - Add macro support.")
+    (writeln "    - Add user input support.")
+    (writeln "    - Add GUI support."))

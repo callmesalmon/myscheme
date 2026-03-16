@@ -1,2 +1,2 @@
-(define msg "Hello World!") ; Define variable
-(write msg)                 ; Print value of $msg
+(define msg "Hello World!")   ; Define variable
+(writeln msg)                 ; Print value of $msg

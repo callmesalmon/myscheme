@@ -193,9 +193,8 @@ int main(int argc, char** argv) {
            "********************************\n");
 
     while (true) {
-        printf("> ");
+        printf("\nrepl> ");
         printer(eval(read(stdin), global_environment));
-        printf("\n");
     }
 
     return 0;

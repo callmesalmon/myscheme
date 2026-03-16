@@ -10,5 +10,5 @@
             "False")
         "Null"))
 
-(write (bool_to_str #t)) ; "True"  (#t => "True")
-(write (bool_to_str #f)) ; "False" (#f => "False")
+(writeln (bool_to_str #t)) ; "True"  (#t => "True")
+(writeln (bool_to_str #f)) ; "False" (#f => "False")
