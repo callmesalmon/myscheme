@@ -25,8 +25,9 @@ myscm <args>
 
 ## Examples
 By the way, MyScheme is a *teeny* bit different than... Let's say
-ChezScheme, so you might be a bit confused when seeing the
-examples. But if you want to, they're [here](/scheme).
+ChezScheme (the biggest one probably being that MyScheme... Doesn't have
+lambdas), so you might be a bit confused when seeing the examples. But if
+you want to, they're [here](/scheme).
 
 ## Further help
 Open the repl by running `myscm` with 0 arguments
