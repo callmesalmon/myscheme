@@ -56,23 +56,24 @@ void printer(object *obj) {
             break;
         case STRING:
             str=obj->data.string.value;
-            fprintf(stdout,"\"");
             while( *str!='\0' ) {
-                if (*str=='\n') {
-                    fprintf(stdout,"\\n");
-                }
+                int return_flag = 0;
+                if (*str=='\n')
+                    fprintf(stdout,"\n");
                 else if ( *str=='\\') {
+                    return_flag = 1;
                     fprintf(stdout,"\\");
                 }
-                else if (*str=='"'){
-                    fprintf(stdout, "\\\"");
-                }
-                else {
+                else if (*str=='"')
+                    fprintf(stdout, "\"");
+                else if (*str=='n' && return_flag)
+                    fprintf(stdout, "\n");
+                else if (*str=='\\' && return_flag)
+                    fprintf(stdout, "\\");
+                else
                     fprintf(stdout,"%c",*str);
-                }
                 str++;
             }
-            fprintf(stdout,"\"");
             break;
         case PAIR:
             fprintf(stdout,"(");

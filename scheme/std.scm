@@ -144,9 +144,10 @@
 (define False #f)
 
 ; write
-(define (newline) (write ""))               ; \n (hex: 0x0a)
-(define print write)                        ; alias
-(define (println obj) (write obj)(newline)) ; obj + 0x0a
+(define (newline) (write "\n"))                   ; \n (hex: 0x0a)
+(define print write)                              ; alias
+(define (println obj)
+  (write obj) (write (newline))) ; obj + 0x0a
 
 ; math
 (define (square x) (* x x))           ; x^2 (pow(x, 2))
@@ -205,20 +206,20 @@
 ; run in repl using
 ; ``(help)``.
 (define (help)
-    (print "MYSCHEME"                                         )
-    (print "    MyScheme is a Scheme interpreter I hacked"    )
-    (print "    together in an afternoon. It's... Functional.")
-    (print "USAGE"                                            )
-    (print "    myscm <args>"                                 )
-    (print "FLAGS"                                            )
-    (print "    -d: Enable debug mode."                       )
-    (print "    -v: Print version and exit."                  )
-    (print "BUILD CONFIGURATION FLAGS"                        )
-    (print "    --repl: Only use repl"                        )
-    (print "    --exclude <opt>: Exclude <opt> from build."   )
-    (print "    --clang: Compile with Clang"                  )
-    (print "    --cflags <flags>: Compile with <flags>"       )
-    (print "TODO"                                             )
-    (print "    - Add macro support."                         )
-    (print "    - Add user input support."                    )
-    (print "    - Add GUI support."                           ))
+    (print "MYSCHEME\n")
+    (print "MyScheme is a Scheme interpreter I hacked\n")
+    (print "together in a month. It's functional enough.\n")
+    (print "USAGE\n")
+    (print "    myscm <args>\n")
+    (print "FLAGS\n")
+    (print "    -d: Enable debug mode.\n")
+    (print "    -v: Print version and exit.\n")
+    (print "BUILD CONFIGURATION FLAGS\n")
+    (print "    --repl: Only use repl")
+    (print "    --exclude <opt>: Exclude <opt> from build.\n")
+    (print "    --clang: Compile with Clang\n")
+    (print "    --cflags <flags>: Compile with <flags>\n")
+    (print "TODO")
+    (print "    - Add macro support.\n")
+    (print "    - Add user input support.\n")
+    (print "    - Add GUI support.\n"))
