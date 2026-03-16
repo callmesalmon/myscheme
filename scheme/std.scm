@@ -214,6 +214,7 @@
     (print "FLAGS\n")
     (print "    -d: Enable debug mode.\n")
     (print "    -v: Print version and exit.\n")
+    (print "    -n: Do NOT use stdlib.\n")
     (print "TODO")
     (print "    - Add macro support.\n")
     (print "    - Add user input support.\n")

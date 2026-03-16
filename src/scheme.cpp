@@ -155,6 +155,8 @@ void sighandler(int signum)
 }
 
 int main(int argc, char** argv) {
+    int have_stdlib = 1;
+
     flagzone {
         flag("-d", "--debug") {
             printf("Debug mode!\n");
@@ -169,11 +171,15 @@ int main(int argc, char** argv) {
             printf("Version: %s\n", VERSION);
             return 2;
         }
+        flag("-n", "--nostdlib") {
+            have_stdlib = 0;
+        }
     }
 
     init();
 
-    loadstd();
+    if (have_stdlib)
+        loadstd();
 
     if can_load {
         loadsrc(argv[1]);
