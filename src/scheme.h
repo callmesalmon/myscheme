@@ -15,11 +15,9 @@
 #include "printer.h"
 #include "env.h"
 #include "io.h"
-#include "config.h"
 
-/* C library */
+/* Another unrelated C library made by me */
 #include "cterm.h"
-
 
 extern object* empty_list;
 extern object* False;

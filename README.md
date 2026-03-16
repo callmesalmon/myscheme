@@ -15,21 +15,7 @@ But if you want to, you could install it, I guess. I made a
 git clone https://github.com/callmesalmon/myscheme scm
 cd scm
 
-./configure # Prebuild
-sudo make   # To build
-
-# NOTE: To exclude different functions
-#       of the interpreter, do:
-./configure --exclude debug # To exclude debugging
-./configure --exclude std   # To exclude stdlib loading
-
-# NOTE: To compile with only repl, do:
-./configure --repl
-
-# NOTE: To compile with gcc or change
-#       the cflags, do:
-./configure --gcc            # To compile with gcc
-./configure --cflags <flags> # To change cflags
+sudo make
 ```
 
 ## Run
