@@ -1,5 +1,5 @@
 # MyScheme
-MyScheme is a Scheme interpreter that... Definitely exists, alright.
+MyScheme is a Scheme interpreter for UNIX-like systems that... Definitely exists, alright.
 It gets the basics done but it doesn't include *everything*, per se.
 But if you want to, you could install it, I guess. I made a
 [blog post](https://callmesalmon.github.io/ramblings/2025/01/07/scheme.html) about it.
@@ -15,7 +15,13 @@ But if you want to, you could install it, I guess. I made a
 git clone https://github.com/callmesalmon/myscheme scm
 cd scm
 
-sudo make
+## NOTE: You may need to run with ``sudo``
+## due to this script trying to access /usr/local/share/scheme
+## to install the standard library
+./config.sh
+
+make # or ``sudo make install`` for
+     # installation to ``/usr/local/bin
 ```
 
 ## Run

@@ -123,9 +123,9 @@ void loadstd() {
     FILE *in=NULL;
     object* exp;
 
-    in=fopen("scheme/std.scm","r");
+    in=fopen("/usr/local/share/scheme/myscheme-stdlib.scm","r");
     if (in==NULL) {
-        fprintf(stdout, "Exception in load: Cannot load the stdlib (scheme/std.scm).");
+        fprintf(stdout, "Exception in load: Cannot load the stdlib (/usr/local/share/scheme/myscheme-stdlib.scm).");
     }
 
     while( (exp=read(in))!=NULL ) {

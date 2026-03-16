@@ -1,4 +1,4 @@
-; --- MyScheme std.scm ---
+; --- MyScheme file ---
 ; This is the standard library for MyScheme.
 
 (define zero 0)
