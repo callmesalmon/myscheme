@@ -12,7 +12,7 @@
 int debug=0;
 
 #define can_load     (argc > 1 && debug == 0)
-#define not_end(i, l) ((l - 1) > l)
+#define not_end(i, l) ((l - 1) > i)
 #define flagzone for (int i = 0; i < argc; i++)
 #define flag(x, y)   if (!strcmp(argv[i], x) || !strcmp(argv[i], y))
 
@@ -130,7 +130,6 @@ void loadstd() {
 
     while( (exp=read(in))!=NULL ) {
         eval(exp,global_environment);
-        printf("\n");
     }
     fclose(in);
 }
@@ -146,7 +145,6 @@ void loadsrc(char *source) {
 
     while( (exp=read(in))!=NULL ) {
         eval(exp,global_environment);
-        printf("\n");
     }
     fclose(in);
 }
@@ -158,19 +156,15 @@ void sighandler(int signum)
 
 int main(int argc, char** argv) {
     flagzone {
-        #ifndef DEBUG_EXCLUDE
         flag("-d", "--debug") {
             printf("Debug mode!\n");
             debug = 1;
-            #ifndef ONLY_REPL
             if not_end(i, argc) {
                 loadsrc(argv[i + 1]);
                 return 1;
             }
-            #endif
             break;
         }
-        #endif
         flag("-v", "--version") {
             printf("Version: %s\n", VERSION);
             return 2;
@@ -181,16 +175,16 @@ int main(int argc, char** argv) {
 
     loadstd();
 
+    if can_load {
+        loadsrc(argv[1]);
+        return 1;
+    }
+
     clear();
     printf("********************************\n\n\n"
         "             MyScheme              \n\n\n"
         "          ctrl-d to exit.          \n\n\n"
            "********************************\n");
-
-    if can_load {
-        loadsrc(argv[1]);
-        return 1;
-    }
 
     while (true) {
         printf("> ");
