@@ -1,4 +1,3 @@
-.DEFAULT_GOAL=/usr/local/bin/myscm
 .PHONY: all
 
 include config.mk
@@ -9,10 +8,16 @@ CPP_HEADERS   = $(wildcard include/*.h)
 CONFIG_OUTPUT = $(wildcard config.*)
 CONFIG_FILES  = $(CONFIG_OUTPUT) configure
 
-all: $(.DEFAULT_GOAL)
+TARGET        = myscm
 
-$(.DEFAULT_GOAL): $(CPP_OBJS) $(CPP_HEADERS) $(CONFIG_FILES)
-	$(CC) $(CFLAGS) $(CPP_OBJS) -o $(.DEFAULT_GOAL)
+all: build
+
+build: $(CPP_OBJS) $(CPP_HEADERS) $(CONFIG_FILES)
+	$(CC) $(CFLAGS) $(CPP_OBJS) -o $(TARGET)
+
+install:  $(CPP_OBJS) $(CPP_HEADERS) $(CONFIG_FILES)
+	$(CC) $(CFLAGS) $(CPP_ONJS) -o /usr/local/bin/$(TARGET)
+
 
 clean:
-	rm $(.DEFAULT_GOAL)
+	rm $(TARGET)
