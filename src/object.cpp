@@ -347,7 +347,7 @@ void init_symbol() {
     quote_symbol=make_symbol("quote");
     define_symbol=make_symbol("define");
     set_symbol=make_symbol("set!");
-    ok_symbol=make_symbol(""); // I have forgot how this codebase works so thisll have to do
+    ok_symbol=make_symbol(""); // Since this is the default return value, I don't see a reason to set it to anything
     if_symbol=make_symbol("if");
     lambda_symbol=make_symbol("lambda");
     begin_symbol=make_symbol("begin");

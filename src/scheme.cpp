@@ -89,7 +89,6 @@ void init() {
     add_function("procedure?",procedure_procedure);
     add_function("eq?",eq_procedure);
 
-
     add_function("typeof"        ,typeof_procedure);
     add_function("char->integer" ,char_to_integer_procedure);
     add_function("integer->char" ,integer_to_char_procedure);
@@ -126,6 +125,7 @@ void loadstd() {
     in=fopen("/usr/local/share/scheme/myscheme-stdlib.scm","r");
     if (in==NULL) {
         fprintf(stdout, "Exception in load: Cannot load the stdlib (/usr/local/share/scheme/myscheme-stdlib.scm).");
+        exit(-1);
     }
 
     while( (exp=read(in))!=NULL ) {
@@ -141,6 +141,7 @@ void loadsrc(char *source) {
     in=fopen(source,"r");
     if (in==NULL) {
         fprintf(stdout, "Exception in load: Cannot load the file.");
+        exit(-1);
     }
 
     while( (exp=read(in))!=NULL ) {
