@@ -8,5 +8,5 @@ if [ ! -d "$STDLIB_DIR" ]; then
 fi
 
 if [ ! -f "$STDLIB_DIR/$STDLIB_FILE" ]; then
-    cp scheme/std.scm $STDLIB_DIR/$STDLIB_FILE
+    cp scheme/stdlib.scm $STDLIB_DIR/$STDLIB_FILE
 fi

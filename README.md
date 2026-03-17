@@ -30,18 +30,7 @@ myscm <args>
 ```
 
 ## Examples
-``hello_world``:
-```scheme
-(writeln "Hello, World!")
-```
-``factorial``:
-```scheme
-(define (facto n)
-    (if (= n 1)
-      1
-      n * (facto n - 1)))
-```
-More examples found [here](/scheme)
+Examples found [here](/scheme/examples)
 
 (By the way, MyScheme is a *teeny* bit different than... Let's say
 ChezScheme, so you might be a bit confused when seeing the examples...)

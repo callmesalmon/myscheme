@@ -4,21 +4,10 @@
 *.obj
 *.out
 
-# "Executables" (mostly on Windows)
-*.exe
-*.dll
-
-# Archives
-*.zip
-*.tar.gz
-*.tar
-
-# Debug files
-debug.hpp
-debug.scm
-
 # Specs
 myscm
 myscheme
 scm
+
 scheme
+!scheme/
