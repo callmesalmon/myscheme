@@ -217,5 +217,4 @@
     (writeln "    -n: Do NOT use stdlib.")
     (writeln "TODO")
     (writeln "    - Add macro support.")
-    (writeln "    - Add user input support.")
     (writeln "    - Add GUI support."))
