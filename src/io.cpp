@@ -40,7 +40,7 @@ object* load_procedure(object* args) {
 
 object* read_procedure(object* args) {
     char *buf;
-    scanf("%512s", buf);
+    scanf("%[^\n]", buf);
 
     return make_string(buf);
 }

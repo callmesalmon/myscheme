@@ -127,6 +127,8 @@ void loadstd() {
         exit(-1);
     }
 
+
+    static int i = 1;
     while( (exp=read(in))!=NULL ) {
         eval(exp,global_environment);
     }

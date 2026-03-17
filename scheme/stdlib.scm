@@ -143,11 +143,10 @@
 (define True  #t)
 (define False #f)
 
-; write
-(define (newline) (write "\n"))                   ; \n (hex: 0x0a)
+; io
 (define (writeln obj)
   (write obj)
-  (newline)) ; obj + 0x0a
+  (write "\n"))
 
 ; math
 (define (square x) (* x x))           ; x^2 (pow(x, 2))
