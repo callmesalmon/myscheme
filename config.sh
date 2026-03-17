@@ -7,6 +7,4 @@ if [ ! -d "$STDLIB_DIR" ]; then
     mkdir "$STDLIB_DIR"
 fi
 
-if [ ! -f "$STDLIB_DIR/$STDLIB_FILE" ]; then
-    cp scheme/stdlib.scm $STDLIB_DIR/$STDLIB_FILE
-fi
+cp scheme/stdlib.scm $STDLIB_DIR/$STDLIB_FILE
