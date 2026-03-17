@@ -115,7 +115,6 @@ void init() {
     add_function("close-output-port", close_output_port_procedure);
     add_function("output-port?"     , is_output_port_procedure);
     add_function("write"            , write_procedure);
-
 }
 
 void loadstd() {
@@ -124,7 +123,7 @@ void loadstd() {
 
     in=fopen("/usr/local/share/scheme/myscheme-stdlib.scm","r");
     if (in==NULL) {
-        fprintf(stdout, "Exception in load: Cannot load the stdlib (/usr/local/share/scheme/myscheme-stdlib.scm).");
+        fprintf(stdout, "Exception in load: Cannot load the stdlib (/usr/local/share/scheme/myscheme-stdlib.scm).\n");
         exit(-1);
     }
 
@@ -140,7 +139,7 @@ void loadsrc(char *source) {
 
     in=fopen(source,"r");
     if (in==NULL) {
-        fprintf(stdout, "Exception in load: Cannot load the file.");
+        fprintf(stdout, "Exception in load: Cannot load '%s'.\n", source);
         exit(-1);
     }
 
