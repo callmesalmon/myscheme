@@ -1,4 +1,5 @@
 #include "io.h"
+#include "object.h"
 
 
 object* make_input_port(FILE* in) {
@@ -38,7 +39,10 @@ object* load_procedure(object* args) {
 }
 
 object* read_procedure(object* args) {
-    return args;
+    char *buf;
+    scanf("%512s", buf);
+
+    return make_string(buf);
 }
 
 object* open_input_port_procedure(object* args) {

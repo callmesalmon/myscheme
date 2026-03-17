@@ -345,7 +345,6 @@ object* eval(object* exp, object* env) {
             }
             else {
                 fprintf(stderr, "[ERROR] Cannot eval unknown expression.\n");
-                exit(1);
             }
         }
         else if ( is_warn(exp) ) {
