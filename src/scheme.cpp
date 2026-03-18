@@ -115,6 +115,7 @@ void init() {
     add_function("close-output-port", close_output_port_procedure);
     add_function("output-port?"     , is_output_port_procedure);
     add_function("write"            , write_procedure);
+    add_function("string-append"    , string_append_procedure);
 }
 
 void loadstd() {

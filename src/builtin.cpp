@@ -306,6 +306,16 @@ object* write_procedure(object* args) {
     return ok_symbol;
 }
 
+object* string_append_procedure(object* args) {
+    object *obj1;
+    object *obj2;
+    
+    obj1 = car(args);
+    obj2 = cadr(args);
+
+    return make_string(strcat(obj1->data.string.value, obj2->data.string.value));
+}
+
 object* typeof_procedure(object* args) {
     const char *res;
     DEBUG("args' type: %d\n", args->type);

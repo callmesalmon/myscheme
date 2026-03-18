@@ -65,6 +65,7 @@ object* set_cdr_procedure(object* args);
 object* list_procedure(object* args);
 object* eq_procedure(object* args);
 object* write_procedure(object* args);
+object* string_append_procedure(object* args);
 object* typeof_procedure(object* args);
 
 #endif
