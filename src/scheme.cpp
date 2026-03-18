@@ -176,6 +176,10 @@ int main(int argc, char** argv) {
         }
         flag("-n", "--nostdlib") {
             have_stdlib = 0;
+            if not_end(i, argc) {
+                loadsrc(argv[i + 1]);
+                return 1;
+            }
         }
     }
 
