@@ -44,3 +44,14 @@ and type this:
 ```scheme
 (help)
 ```
+
+## Big problems
+- All functions are evaluated before they are called, which causes some problems. Take:
+```scheme
+(define (hello-world) (writeln "Hello World"))
+
+(hello-world)
+```
+This will print: ``Hello World<newline>Hello World<newline>`` because it prints hello world
+when evaluated. Fun.
+- User input just doesn't work in REPL
