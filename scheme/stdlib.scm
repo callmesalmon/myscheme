@@ -96,6 +96,7 @@
       1                   ; 1! = 1
       n * (facto n - 1))) ; ex. 5! = 5 * 4! = 5 * 4 * 3! = ...
 
+; List utilities
 (define (caar x) (car (car x)))
 (define (cadr x) (car (cdr x)))
 (define (cddr x) (cdr (cdr x)))
@@ -127,6 +128,19 @@
 (define (cdddar x) (cdr (cdr (cdr (car x)))))
 (define (cddddr x) (cdr (cdr (cdr (cdr x)))))
 
+; Not builtin in this implementation
+(define (length lst)
+  (if (null? lst)
+      0
+      (+ 1 (length (cdr lst)))))
+
+; (element-at '("a" "b" "c") 1)
+; > "b"
+(define (element-at lst index)
+  (if (zero? index)
+      (car lst)
+      (element-at (cdr lst) (- index 1))))
+
 ; null
 (define null '())
 
@@ -142,6 +156,14 @@
 ; popular...)
 (define True  #t)
 (define False #f)
+
+; concatenate all elements
+; (has to be strings) in ``lst``
+(define (concat lst)
+  (if (= (length lst) 0)
+    ""
+    (string-append (element-at lst 0) (concat (cdr lst)))
+    ))
 
 ; io
 (define (writeln obj)
