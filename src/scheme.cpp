@@ -108,7 +108,7 @@ void init() {
     add_function("open-input-port"  , open_input_port_procedure);
     add_function("close-input-port" , close_input_port_procedure);
     add_function("input-port?"      , is_input_port_procedure);
-    add_function("read"             , read_procedure);
+ // add_function("read"             , read_procedure);
  // add_function("peek-char"        , peek_char_procedure);
  // add_function("eof-object?"      , is_eof_object_procedure);
     add_function("open-output-port" , open_output_port_procedure);

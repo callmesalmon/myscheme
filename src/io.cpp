@@ -39,10 +39,7 @@ object* load_procedure(object* args) {
 }
 
 object* read_procedure(object* args) {
-    char *buf;
-    scanf("%[^\n]", buf);
-
-    return make_string(buf);
+    return ok_symbol;
 }
 
 object* open_input_port_procedure(object* args) {
