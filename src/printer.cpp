@@ -56,20 +56,32 @@ void printer(object *obj) {
             break;
         case STRING:
             str=obj->data.string.value;
+            DEBUG("Entering string printing loop!\n");
+            static int return_flag = 0;
             while( *str!='\0' ) {
-                int return_flag = 0;
+                DEBUG("*str: %c\n", *str);
+                DEBUG("string escape code status: %s\n", (return_flag) ? "yes" : "no");
+
                 if (*str=='\n')
                     fprintf(stdout,"\n");
                 else if ( *str=='\\') {
+                    DEBUG("String escape code encountered!\n");
                     return_flag = 1;
-                    fprintf(stdout,"\\");
                 }
                 else if (*str=='"')
                     fprintf(stdout, "\"");
-                else if (*str=='n' && return_flag)
+                else if (*str=='n' && return_flag) {
                     fprintf(stdout, "\n");
-                else if (*str=='\\' && return_flag)
+                    return_flag = 0;
+                }
+                else if (*str=='t' && return_flag) {
+                    fprintf(stdout, "\t");
+                    return_flag = 0;
+                }
+                else if (*str=='\\' && return_flag) {
                     fprintf(stdout, "\\");
+                    return_flag = 0;
+                }
                 else
                     fprintf(stdout,"%c",*str);
                 str++;
