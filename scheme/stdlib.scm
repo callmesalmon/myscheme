@@ -92,9 +92,9 @@
 ; implementation. Since ex. 5! ==
 ; 5 * 4!, we can recurse trough.
 (define (facto n)
-    (if (= n 1)           ; We don't wanna recurse forever.
-      1                   ; 1! = 1
-      n * (facto n - 1))) ; ex. 5! = 5 * 4! = 5 * 4 * 3! = ...
+    (if (= n 1)                 ; We don't wanna recurse forever.
+      1                         ; 1! = 1
+      (* n (facto (- n 1)))))   ; ex. 5! = 5 * 4! = 5 * 4 * 3! = ...
 
 ; List utilities
 (define (caar x) (car (car x)))
@@ -144,26 +144,23 @@
 ; null
 (define null '())
 
-; python-esque null
-(define None '())
-
 ; bool
 (define true #t)
 (define false #f)
 
-; python-esque bool
-; (AKA a terrible bool, yet it's
-; popular...)
-(define True  #t)
-(define False #f)
-
 ; concatenate all elements
 ; (has to be strings) in ``lst``
+;
+; This is actually really useful for string
+; formatting, especially when using
+; variables, i.e:
+;
+;     (define name (read))
+;     (write (concat '("Hello, " name "!")))
 (define (concat lst)
   (if (= (length lst) 0)
     ""
-    (string-append (element-at lst 0) (concat (cdr lst)))
-    ))
+    (string-append (element-at lst 0) (concat (cdr lst)))))
 
 ; io
 (define (writeln obj)
@@ -205,8 +202,6 @@
   (cond ((null? y) '())
         ((eq? x (caar y)) (car y))
         ((assq x (cdr y)))))
-
-
 
 (define subst
   (lambda (new old slist)
