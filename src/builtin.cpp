@@ -390,9 +390,9 @@ object* get_arg_procedure(object* args) {
     object *obj = car(args);
     int index = round(obj->data.integer.value);
 
-    DEBUG("index:%d\nglobl_argc:%d\n", index, usable_argc);
+    DEBUG("index:%d\nargc:%d\noffset:%d\n", index, usable_argc, globl_argc_offset);
 
-    if (index >= usable_argc) {
+    if (index >= usable_argc || (index + globl_argc_offset) < 0) {
         return make_warn("Out of bounds!!!");
     } 
 
