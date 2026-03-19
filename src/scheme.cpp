@@ -12,6 +12,7 @@
 
 int debug=0;
 
+int globl_argc;
 char **globl_argv;
 
 #define can_load     (argc > 1 && debug == 0)
@@ -21,7 +22,6 @@ char **globl_argv;
 
 #define add_function(s_name,f_name)   \
         def_var_val(make_symbol(s_name), make_builtin_procedure(f_name), global_environment);
-
 
 #define get_type(type) \
         if (type==0) {              \
@@ -119,7 +119,9 @@ void init() {
     add_function("output-port?"     , is_output_port_procedure);
     add_function("write"            , write_procedure);
     add_function("string-append"    , string_append_procedure);
+
     add_function("get-arg"          , get_arg_procedure);
+    add_function("__builtin_argc"   , get_argc_procedure);
 }
 
 void loadstd() {
@@ -187,6 +189,7 @@ int main(int argc, char** argv) {
         }
     }
 
+    globl_argc = argc;
     globl_argv = argv;
 
     init();

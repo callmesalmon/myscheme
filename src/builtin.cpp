@@ -372,11 +372,22 @@ object* typeof_procedure(object* args) {
 }
 
 extern char **globl_argv;
+extern int globl_argc;
 
 object* get_arg_procedure(object* args) {
     object *obj = car(args);
     int index = round(obj->data.integer.value);
 
+    DEBUG("index:%d\nglobl_argc:%d\n", index, globl_argc - 1);
+
+    if (index >= globl_argc - 1) {
+        return make_warn("Out of bounds!!!");
+    } 
+
     // index+1 because if not arg[0] would be "myscm"
     return make_string(globl_argv[index+1]);
+}
+
+object* get_argc_procedure(object *args) {
+    return make_integer(globl_argc-1);
 }
