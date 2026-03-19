@@ -1,4 +1,5 @@
 #include "builtin.h"
+#include "object.h"
 
 #define DEBUG(...)                   \
        do  {                         \
@@ -37,6 +38,7 @@ object* add_procedure(object* args) {
         }
         args = cdr(args);
     }
+    DEBUG("res: %ld\n", res);
     return make_integer(res);
 }
 
@@ -60,6 +62,7 @@ object* sub_procedure(object* args) {
         args = cdr(args);
     }
 
+    DEBUG("res: %ld\n", res);
     return make_integer(res);
 }
 
@@ -81,6 +84,8 @@ object* mul_procedure(object* args) {
     if(c<=1) {
         return False;
     }
+
+    DEBUG("res: %ld\n", res);
     return make_integer(res);
 }
 
@@ -100,6 +105,8 @@ object* div_procedure(object* args) {
         }
         args = cdr(args);
     }
+
+    DEBUG("res: %e\n", res);
     return make_integer((int)res);
 }
 
@@ -362,4 +369,14 @@ object* typeof_procedure(object* args) {
     }
     DEBUG("evaluated type to: %s\n", res);
     return (object*)res;
+}
+
+extern char **globl_argv;
+
+object* get_arg_procedure(object* args) {
+    object *obj = car(args);
+    int index = round(obj->data.integer.value);
+
+    // index+1 because if not arg[0] would be "myscm"
+    return make_string(globl_argv[index+1]);
 }

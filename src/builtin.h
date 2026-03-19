@@ -7,6 +7,7 @@
 #include <signal.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <math.h>
 
 #include "object.h"
 #include "printer.h"
@@ -67,5 +68,6 @@ object* eq_procedure(object* args);
 object* write_procedure(object* args);
 object* string_append_procedure(object* args);
 object* typeof_procedure(object* args);
+object* get_arg_procedure(object* args);
 
 #endif

@@ -1,4 +1,5 @@
 #include "scheme.h"
+#include "builtin.h"
 
 #define VERSION "MyScheme 1.0.0"
 
@@ -10,6 +11,8 @@
        } while(0)
 
 int debug=0;
+
+char **globl_argv;
 
 #define can_load     (argc > 1 && debug == 0)
 #define not_end(i, l) ((l - 1) > i)
@@ -116,6 +119,7 @@ void init() {
     add_function("output-port?"     , is_output_port_procedure);
     add_function("write"            , write_procedure);
     add_function("string-append"    , string_append_procedure);
+    add_function("get-arg"          , get_arg_procedure);
 }
 
 void loadstd() {
@@ -182,6 +186,8 @@ int main(int argc, char** argv) {
             }
         }
     }
+
+    globl_argv = argv;
 
     init();
 
