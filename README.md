@@ -4,9 +4,6 @@ It gets the basics done but it doesn't include *everything*, per se.
 But if you want to, you could install it, I guess. I made a
 [blog post](https://callmesalmon.github.io/ramblings/2025/01/07/scheme.html) about it.
 
-> [!WARNING]
-> While MyScheme includes a REPL, it is kind of janky regarding user input. You have been warned.
-
 ## Prerequisites
 * git
 * make
