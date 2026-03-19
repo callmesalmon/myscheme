@@ -160,7 +160,10 @@
 (define (concat lst)
   (if (= (length lst) 0)
     ""
-    (string-append (element-at lst 0) (concat (cdr lst)))))
+    ; i. e lst[0] + concat(cdr(list)) in
+    ; a more imperative language
+    (string-append (element-at lst 0)
+      (concat (cdr lst)))))
 
 ; io
 (define (writeln obj)
@@ -174,6 +177,8 @@
 (define (dec x) (- x 1))              ; x-1 (x--)
 (define (abs x) (if (> x 0) x (- x))) ; if x >= 0 x, -x
 
+; Exponents!
+; (b^n)
 (define (expt b n)
   (define (expt-iter b counter product)
     (if (= counter 0)
