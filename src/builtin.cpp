@@ -371,6 +371,15 @@ object* typeof_procedure(object* args) {
     return (object*)res;
 }
 
+object* exit_procedure(object* args) {
+    object *obj = car(args);
+    int code = round(obj->data.integer.value);
+
+    exit(code);
+
+    return ok_symbol;
+}
+
 extern char **globl_argv;
 extern int globl_argc;
 

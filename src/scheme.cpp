@@ -122,6 +122,7 @@ void init() {
 
     add_function("get-arg"          , get_arg_procedure);
     add_function("__builtin_argc"   , get_argc_procedure);
+    add_function("exit"             , exit_procedure);
 }
 
 void loadstd() {
