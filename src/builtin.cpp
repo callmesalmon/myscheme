@@ -382,14 +382,17 @@ object* exit_procedure(object* args) {
 
 extern char **globl_argv;
 extern int globl_argc;
+extern int globl_argc_offset;
+
+static int usable_argc = globl_argc - globl_argc_offset;
 
 object* get_arg_procedure(object* args) {
     object *obj = car(args);
     int index = round(obj->data.integer.value);
 
-    DEBUG("index:%d\nglobl_argc:%d\n", index, globl_argc - 1);
+    DEBUG("index:%d\nglobl_argc:%d\n", index, usable_argc);
 
-    if (index >= globl_argc - 1) {
+    if (index >= usable_argc) {
         return make_warn("Out of bounds!!!");
     } 
 
@@ -398,5 +401,5 @@ object* get_arg_procedure(object* args) {
 }
 
 object* get_argc_procedure(object *args) {
-    return make_integer(globl_argc-1);
+    return make_integer(usable_argc);
 }

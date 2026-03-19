@@ -13,6 +13,7 @@
 int debug=0;
 
 int globl_argc;
+int globl_argc_offset;
 char **globl_argv;
 
 #define can_load     (argc > 1 && debug == 0)
@@ -167,8 +168,10 @@ void sighandler(int signum)
 int main(int argc, char** argv) {
     int have_stdlib = 1;
 
+    globl_argc_offset = 1;
     flagzone {
         flag("-d", "--debug") {
+            globl_argc_offset++;
             printf("Debug mode!\n");
             debug = 1;
             if not_end(i, argc) {
@@ -182,11 +185,13 @@ int main(int argc, char** argv) {
             return 2;
         }
         flag("-n", "--nostdlib") {
+            globl_argc_offset++;
             have_stdlib = 0;
             if not_end(i, argc) {
                 loadsrc(argv[i + 1]);
                 return 1;
             }
+            break;
         }
     }
 
