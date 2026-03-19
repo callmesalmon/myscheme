@@ -397,7 +397,7 @@ object* get_arg_procedure(object* args) {
     } 
 
     // index+1 because if not arg[0] would be "myscm"
-    return make_string(globl_argv[index+1]);
+    return make_string(globl_argv[index+globl_argc_offset]);
 }
 
 object* get_argc_procedure(object *args) {
