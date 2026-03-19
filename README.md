@@ -52,3 +52,4 @@ and type this:
 This will print: ``Hello World<newline>Hello World<newline>`` because it prints hello world
 when evaluated. Fun.
 - User input just doesn't work in REPL
+- If literally ANYTHING out-of-the-ordinary happens, it WILL segfault.
