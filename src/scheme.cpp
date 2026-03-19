@@ -168,12 +168,17 @@ void sighandler(int signum)
 int main(int argc, char** argv) {
     int have_stdlib = 1;
 
+    globl_argc = argc;
+    globl_argv = argv;
+
     globl_argc_offset = 1;
     flagzone {
         flag("-d", "--debug") {
             globl_argc_offset++;
             printf("Debug mode!\n");
+            
             debug = 1;
+            DEBUG("ARGC: %d\nARGC_OFFSET: %d\n", globl_argc, globl_argc_offset);
             if not_end(i, argc) {
                 loadsrc(argv[i + 1]);
                 return 1;
@@ -194,9 +199,6 @@ int main(int argc, char** argv) {
             break;
         }
     }
-
-    globl_argc = argc;
-    globl_argv = argv;
 
     init();
 

@@ -384,9 +384,9 @@ extern char **globl_argv;
 extern int globl_argc;
 extern int globl_argc_offset;
 
-static int usable_argc = globl_argc - globl_argc_offset;
-
 object* get_arg_procedure(object* args) {
+    int usable_argc = globl_argc - globl_argc_offset;
+
     object *obj = car(args);
     int index = round(obj->data.integer.value);
 
@@ -395,11 +395,12 @@ object* get_arg_procedure(object* args) {
     if (index >= usable_argc || (index + globl_argc_offset) < 0) {
         return make_warn("Out of bounds!!!");
     } 
+    
+    DEBUG("Attempting to index '%d' of argv of length '%d'\n", index + globl_argc_offset, globl_argc);
 
-    // index+1 because if not arg[0] would be "myscm"
-    return make_string(globl_argv[index+globl_argc_offset]);
+    return make_string(globl_argv[index + globl_argc_offset]);
 }
 
 object* get_argc_procedure(object *args) {
-    return make_integer(usable_argc);
+    return make_integer(globl_argc - globl_argc_offset);
 }
