@@ -24,47 +24,6 @@ char **globl_argv;
 #define add_function(s_name,f_name)   \
         def_var_val(make_symbol(s_name), make_builtin_procedure(f_name), global_environment);
 
-#define get_type(type) \
-        if (type==0) {              \
-            printf("integer\n");    \
-        }                           \
-        else if (type==1) {         \
-            printf("real\n");       \
-        }                           \
-        else if (type==2) {         \
-            printf("boolean\n");    \
-        }                           \
-        else if (type==3) {         \
-            printf("character\n");  \
-        }                           \
-        else if (type==4) {         \
-            printf("string\n");     \
-        }                           \
-        else if (type==5) {         \
-            printf("pair\n");       \
-        }                           \
-        else if (type==6) {         \
-            printf("symbol\n");     \
-        }                           \
-        else if (type==7) {         \
-            printf("builtin_function\n");   \
-        }                           \
-        else if (type==8) {         \
-            printf("compound_function\n");  \
-        }                           \
-        else if (type==9) {         \
-            printf("empty_list\n"); \
-        }                           \
-        else if (type==10) {        \
-            printf("warn\n");       \
-        }                           \
-        else if (type==11) {        \
-            printf("INPUT PORT\n"); \
-        }                           \
-        else {                      \
-            printf("OUTPUT PORT\n");\
-        }
-
 void init() {
 
     init_symbol();
