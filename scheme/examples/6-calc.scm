@@ -9,10 +9,11 @@
 
 (define (evaluate op n1 n2)
   (cond ; use cond because ifs are broken and I don't want to fix them
-    ((eq? op "add") (+ n1 n2))
-    ((eq? op "sub") (- n1 n2))
-    ((eq? op "mul") (* n1 n2))
-    ((eq? op "div") (/ n1 n2))
+    ((eq? op "add") (+    n1 n2))
+    ((eq? op "sub") (-    n1 n2))
+    ((eq? op "mul") (*    n1 n2))
+    ((eq? op "div") (/    n1 n2))
+    ((eq? op "exp") (expt n1 n2))
     (else "**Invalid operator name**")))
 
 (writeln "Result: ")
