@@ -1,3 +1,11 @@
+; The Best And Simplest Calculator In Scheme Of All Time (TBASCISOAT)
+;
+; Cheatsheet:
+;   add x y: adds
+;   sub x y: subtracts
+;   mul x y: multiplies
+;   div x y: divides
+
 (load "../extras.scm") ; this means you gotta be in the scheme/examples
                        ; directory to run this script
 (meet-arg-req 4)
