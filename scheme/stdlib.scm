@@ -3,17 +3,9 @@
 
 (define zero 0)
 
-; Basic function,
-; is item zero? e.g:
-; (zero? 1)        ; #f
-; (zero? 0)        ; #t
-; (zero? "Hello!") ; #f
 (define (zero? n)
     (if (= n 0) #t #f))
 
-; Is number even?
-; (even 5) ; #f
-; (even 6) ; #t
 (define (even? n)
     (if (integer? n)
         (if (= (mod n 2) 0)
@@ -21,12 +13,7 @@
             #f)
         #f))
 
-; Remove the first occurence
-; of "a" in a list, e.g:
-; (rember 'Hello '(As \
-; I entered Hello, I blurted \
-; out a Hello.)) == As I entered,
-; I blurted out a Hello.
+; My beloved!!!
 (define rember
   (lambda (a lat)
     (cond
@@ -35,9 +22,6 @@
       (else (cons (car lat)
                   (rember a (cdr lat)))))))
 
-; Code to check if something
-; is an atom, e.g not pair
-; and not null either.
 (define atom?
  (lambda (x)
     (and (not (pair? x)) (not (null? x)))))
@@ -56,47 +40,29 @@
       ((null? tup) 0)
       (else (o+ (car tup) (addtup (cdr tup)))))))
 
-; Useful for doing write
-; operations on booleans,
-; e.g this:
-; (define bool1 (zero? 0))
-; (define bool2 (zero? 1))
-; (write (bool_to_str bool1)) ; "True"
-; (write (bool_to_str bool2)) ; "False"
 (define (bool_to_str v)
-    (if (boolean? v) ; Type(V) = bool? ... else "Null"
-        (if (= v #t) ; V = #t? "True" else "False"
+    (if (boolean? v)
+        (if (= v #t)
             "True"
             "False")
         "Null"))
 
-; Smallest number out
-; of a and b, e.g:
-; if a > b b, a
 (define (min a b)
     (if (< a b)
       a   ; A < B => A
       b)) ; A > B => B
 
-; Do a reverse implementation,
-; since min is just -max we can
-; flip over min to be max,
-; e.g: (in math notation)
-; max(a, b) = -min(a, b)
+; In this magical land, max is just -min!
 (define (max a b)
     (if (= (min a b) b)
       a   ; MIN(A, B) == B? A
       b)) ; MIN(A, B) == A? B
 
-; Here, we do a classic factorial
-; implementation. Since ex. 5! ==
-; 5 * 4!, we can recurse trough.
 (define (facto n)
-    (if (= n 1)                 ; We don't wanna recurse forever.
-      1                         ; 1! = 1
-      (* n (facto (- n 1)))))   ; ex. 5! = 5 * 4! = 5 * 4 * 3! = ...
+    (if (= n 1)
+      1
+      (* n (facto (- n 1)))))
 
-; List utilities
 (define (caar x) (car (car x)))
 (define (cadr x) (car (cdr x)))
 (define (cddr x) (cdr (cdr x)))
@@ -128,35 +94,26 @@
 (define (cdddar x) (cdr (cdr (cdr (car x)))))
 (define (cddddr x) (cdr (cdr (cdr (cdr x)))))
 
-; Not builtin in this implementation
 (define (length lst)
   (if (null? lst)
       0
       (+ 1 (length (cdr lst)))))
 
-; (element-at '("a" "b" "c") 1)
-; > "b"
+; A more imperative way of
+; using lists. A bit counterinuitive,
+; but I like it! :3
 (define (element-at lst index)
   (if (zero? index)
       (car lst)
       (element-at (cdr lst) (- index 1))))
 
-; null
 (define null '())
 
-; bool
 (define true #t)
 (define false #f)
 
 ; concatenate all elements
 ; (has to be strings) in ``lst``
-;
-; This is actually really useful for string
-; formatting, especially when using
-; variables, i.e:
-;
-;     (define name (read))
-;     (write (concat '("Hello, " name "!")))
 (define (concat lst)
   (if (= (length lst) 0)
     ""
@@ -165,20 +122,17 @@
     (string-append (element-at lst 0)
       (concat (cdr lst)))))
 
-; io
 (define (writeln obj)
   (write obj)
   (write "\n"))
 
-; math
-(define (square x) (* x x))           ; x^2 (pow(x, 2))
-(define (cube x)(* x x x))            ; x^3 (pow(x, 3))
-(define (inc x) (+ x 1))              ; x+1 (x++)
-(define (dec x) (- x 1))              ; x-1 (x--)
-(define (abs x) (if (> x 0) x (- x))) ; if x >= 0 x, -x
+(define (square x) (* x x))
+(define (cube x)(* x x x))
+(define (inc x) (+ x 1))
+(define (dec x) (- x 1))
+(define (abs x) (if (> x 0) x (- x)))
 
 ; Exponents!
-; (b^n)
 (define (expt b n)
   (define (expt-iter b counter product)
     (if (= counter 0)
