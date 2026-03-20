@@ -1,14 +1,11 @@
 # MyScheme
-MyScheme is a Scheme interpreter for UNIX-like systems that... Definitely exists, alright.
-It gets the basics done but it doesn't include *everything*, per se.
-But if you want to, you could install it, I guess. I made a
-[blog post](https://callmesalmon.github.io/ramblings/2025/01/07/scheme.html) about it.
+MyScheme is a half-baked scheme implementation written in C (not C++, the C++ compiler is just a bit more lenient
+so we use it as a clever workaround). It is functioning enough to write a [calculator](/scheme/examples/6-calc.scm)
+in it, at the very least. At this moment it will not compile on W\*ndows.
 
 ## Prerequisites
-* git
 * make
-* clang (or gcc)
-* python3
+* clang
 
 ## Install
 ```sh
@@ -30,10 +27,7 @@ myscm <args>
 ```
 
 ## Examples
-Examples found [here](/scheme/examples)
-
-(By the way, MyScheme is a *teeny* bit different than... Let's say
-ChezScheme, so you might be a bit confused when seeing the examples...)
+Examples found [here](/scheme/examples).
 
 ## Further help
 Open the repl by running `myscm` with 0 arguments
