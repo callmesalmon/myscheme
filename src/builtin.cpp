@@ -368,7 +368,7 @@ object* typeof_procedure(object* args) {
             break;
     }
     DEBUG("evaluated type to: %s\n", res);
-    return (object*)res;
+    return make_string(res);
 }
 
 object* exit_procedure(object* args) {
