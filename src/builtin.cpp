@@ -1,5 +1,4 @@
 #include "builtin.h"
-#include "object.h"
 
 #define DEBUG(...)                   \
        do  {                         \

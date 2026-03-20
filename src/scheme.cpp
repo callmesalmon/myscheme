@@ -1,5 +1,4 @@
 #include "scheme.h"
-#include "builtin.h"
 
 #define VERSION "MyScheme 1.0.0"
 

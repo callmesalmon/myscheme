@@ -15,6 +15,7 @@
 #include "printer.h"
 #include "env.h"
 #include "io.h"
+#include "builtin.h"
 
 /* Another unrelated C library made by me */
 #include "cterm.h"
