@@ -1,11 +1,3 @@
-; The Best And Simplest Calculator In Scheme Of All Time (TBASCISOAT)
-;
-; Cheatsheet:
-;   add x y: adds
-;   sub x y: subtracts
-;   mul x y: multiplies
-;   div x y: divides
-
 (load "../extras.scm") ; this means you gotta be in the scheme/examples
                        ; directory to run this script
 (meet-arg-req 4)
@@ -16,7 +8,7 @@
 (define n2 (string->number (get-arg 3)))
 
 (define (evaluate op n1 n2)
-  (cond
+  (cond ; use cond because ifs are broken and I don't want to fix them
     ((eq? op "add") (+ n1 n2))
     ((eq? op "sub") (- n1 n2))
     ((eq? op "mul") (* n1 n2))
