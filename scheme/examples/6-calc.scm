@@ -1,3 +1,7 @@
+(load "../extras.scm") ; this means you gotta be in the scheme/examples
+                       ; directory to run this script
+(meet-arg-req 4)
+
 (define op (get-arg 1))
 
 (define n1 (string->number (get-arg 2)))
@@ -9,7 +13,7 @@
     ((eq? op "sub") (- n1 n2))
     ((eq? op "mul") (* n1 n2))
     ((eq? op "div") (/ n1 n2))
-    (else 0)))
+    (else "**Invalid operator name**")))
 
 (writeln "Result: ")
 (writeln (evaluate op n1 n2))
