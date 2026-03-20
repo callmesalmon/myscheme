@@ -380,6 +380,13 @@ object* exit_procedure(object* args) {
     return ok_symbol;
 }
 
+object* system_procedure(object* args) {
+    object *obj = car(args);
+    system(obj->data.string.value);
+
+    return ok_symbol;
+}
+
 extern char **globl_argv;
 extern int globl_argc;
 extern int globl_argc_offset;
