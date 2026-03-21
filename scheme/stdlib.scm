@@ -159,7 +159,7 @@
   (average guess (/ x guess)))
 
 (define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.1))
+  (< (abs (- (square guess) x)) 0.01))
 
 ; On more complicated numbers this may take
 ; up to 3 seconds so that's really fun :)))))
