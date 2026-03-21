@@ -164,7 +164,9 @@
 ; On more complicated numbers this may take
 ; up to 10 seconds so that's really fun :)))))
 ;
-; Also it isn't all too accurate...
+; Also it isn't all too accurate :/
+; To illustrate, ``(sqrt 50)`` returns 7. The margin
+; of error is remarkably big.
 (define (sqrt x)
   (define (sqrt-iter guess x guess-amount)
     (cond
