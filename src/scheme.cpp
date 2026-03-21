@@ -169,11 +169,11 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    clear();
-    printf("********************************\n\n\n"
+    printf("\n"
+        "********************************\n\n\n"
         "             MyScheme              \n\n\n"
         "          ctrl-d to exit.          \n\n\n"
-           "********************************\n");
+        "********************************\n");
 
     while (true) {
         printf("\nrepl> ");

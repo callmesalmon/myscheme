@@ -17,9 +17,6 @@
 #include "io.h"
 #include "builtin.h"
 
-/* Another unrelated C library made by me */
-#include "cterm.h"
-
 extern object* empty_list;
 extern object* False;
 extern object* True;
