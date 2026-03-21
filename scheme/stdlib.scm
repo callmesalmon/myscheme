@@ -159,16 +159,16 @@
   (average guess (/ x guess)))
 
 (define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.01))
+  (< (abs (- (square guess) x)) 0.0001))
 
 ; On more complicated numbers this may take
-; up to 3 seconds so that's really fun :)))))
+; up to 10 seconds so that's really fun :)))))
 ;
 ; Also it isn't all too accurate...
 (define (sqrt x)
   (define (sqrt-iter guess x guess-amount)
     (cond
-      ((> guess-amount 10000) guess)
+      ((> guess-amount 100000) guess)
       ((= guess (improve-accuracy guess x)) guess)
       ((good-enough? guess x) guess)
       (else (sqrt-iter (improve-accuracy guess x) x (+ guess-amount 1)))))
