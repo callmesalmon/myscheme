@@ -163,6 +163,8 @@
 
 ; On more complicated numbers this may take
 ; up to 3 seconds so that's really fun :)))))
+;
+; Also it isn't all too accurate...
 (define (sqrt x)
   (define (sqrt-iter guess x guess-amount)
     (cond
