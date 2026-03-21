@@ -90,6 +90,10 @@ void printer(object *obj) {
                     fprintf(stdout, "\\");
                     return_flag = 0;
                 }
+                else if (return_flag) {
+                    fprintf(stdout, "?");
+                    return_flag = 0;
+                }
                 else
                     fprintf(stdout,"%c",*str);
                 str++;
