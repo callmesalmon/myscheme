@@ -68,7 +68,7 @@ void printer(object *obj) {
                     DEBUG("String escape code encountered!\n");
                     return_flag = 1;
                 }
-                else if (*str=='"')
+                else if (*str=='"' && return_flag)
                     fprintf(stdout, "\"");
                 else if (*str=='n' && return_flag) {
                     fprintf(stdout, "\n");
@@ -76,6 +76,14 @@ void printer(object *obj) {
                 }
                 else if (*str=='t' && return_flag) {
                     fprintf(stdout, "\t");
+                    return_flag = 0;
+                }
+                else if (*str=='r' && return_flag) {
+                    fprintf(stdout, "\r");
+                    return_flag = 0;
+                }
+                else if (*str=='b' && return_flag) {
+                    fprintf(stdout, "\b");
                     return_flag = 0;
                 }
                 else if (*str=='\\' && return_flag) {
