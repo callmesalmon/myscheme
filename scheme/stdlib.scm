@@ -159,18 +159,18 @@
   (average guess (/ x guess)))
 
 (define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 1))
+  (< (abs (- (square guess) x)) 0.1))
 
-; Do not attempt to guess the square root
-; of any number that can't be square-root:ed...
-; YOU HAVE BEEN WARNED
+; On more complicated numbers this may take
+; up to 3 seconds so that's really fun :)))))
 (define (sqrt x)
-  (define (sqrt-iter guess x)
-    (if (good-enough? guess x)
-      guess
-      (sqrt-iter (improve-accuracy guess x)
-        x)))
-  (abs (sqrt-iter 1 x)))
+  (define (sqrt-iter guess x guess-amount)
+    (cond
+      ((> guess-amount 10000) guess)
+      ((= guess (improve-accuracy guess x)) guess)
+      ((good-enough? guess x) guess)
+      (else (sqrt-iter (improve-accuracy guess x) x (+ guess-amount 1)))))
+  (abs (sqrt-iter 1 x 1)))
 
 ; list
 (define (assoc x y)
