@@ -126,11 +126,14 @@
   (write obj)
   (write "\n"))
 
+(define (invert x)
+  (- 0 x))
+
 (define (square x) (* x x))
 (define (cube x)(* x x x))
 (define (inc x) (+ x 1))
 (define (dec x) (- x 1))
-(define (abs x) (if (> x 0) x (- x)))
+(define (abs x) (if (> x 0) x (invert x)))
 
 ; Exponents!
 (define (expt b n)
@@ -145,6 +148,29 @@
 (define (gcd a b)
   (if (= b 0) a
     (gcd b (remainder a b))))
+
+; The following square-root functions are made
+; with "great inspiration" from:
+;   https://jaredkrinke.github.io/learn-scheme/1-1-7-examplesquarer.html
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (improve-accuracy guess x)
+  (average guess (/ x guess)))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 1))
+
+; Do not attempt to guess the square root
+; of any number that can't be square-root:ed...
+; YOU HAVE BEEN WARNED
+(define (sqrt x)
+  (define (sqrt-iter guess x)
+    (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve-accuracy guess x)
+        x)))
+  (abs (sqrt-iter 1 x)))
 
 ; list
 (define (assoc x y)
