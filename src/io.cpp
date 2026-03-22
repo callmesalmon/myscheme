@@ -38,7 +38,7 @@ object* load_procedure(object* args) {
     return ok_symbol;
 }
 
-object* read_procedure(object* args) {
+object* read_procedure(object *args) {
     return ok_symbol;
 }
 

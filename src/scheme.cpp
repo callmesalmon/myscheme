@@ -95,8 +95,6 @@ void loadstd() {
         exit(-1);
     }
 
-
-    static int i = 1;
     while( (exp=read(in))!=NULL ) {
         eval(exp,global_environment);
     }
@@ -117,11 +115,6 @@ void loadsrc(char *source) {
         eval(exp,global_environment);
     }
     fclose(in);
-}
-
-void sighandler(int signum)
-{
-    printf("\n> ");
 }
 
 int main(int argc, char** argv) {
