@@ -13,6 +13,18 @@
             #f)
         #f))
 
+(define (>= a b)
+  (cond
+    ((> a b) #t)
+    ((= a b) #t)
+    (else #f)))
+
+(define (<= a b)
+  (cond
+    ((< a b) #t)
+    ((= a b) #t)
+    (else #f)))
+
 ; My beloved!!!
 (define rember
   (lambda (a lat)
