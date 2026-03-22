@@ -137,7 +137,6 @@ int main(int argc, char** argv) {
             printf("Debug mode!\n");
             
             debug = 1;
-            DEBUG("ARGC: %d\nARGC_OFFSET: %d\n", globl_argc, globl_argc_offset);
             if not_end(i, argc) {
                 loadsrc(argv[i + 1]);
                 return 1;

@@ -17,7 +17,7 @@ void print_pair(object* obj) {
         print_pair(obj->data.pair.cdr);
     }
     else if (obj->data.pair.cdr->type==EMPTY_LIST){
-        return ;
+        return;
     }
     else {
         fprintf(stdout," . ");
@@ -56,12 +56,9 @@ void printer(object *obj) {
             break;
         case STRING:
             str=obj->data.string.value;
-            DEBUG("Entering string printing loop!\n");
+            DEBUG("String type detected! Entering printing loop...\n");
             static int return_flag = 0;
             while( *str!='\0' ) {
-                DEBUG("*str: %c\n", *str);
-                DEBUG("string escape code status: %s\n", (return_flag) ? "yes" : "no");
-
                 if (*str=='\n')
                     fprintf(stdout,"\n");
                 else if ( *str=='\\') {
