@@ -24,3 +24,7 @@
 ; Join strings, separated by a space
 (define (strjoinspc s1 s2)
   (strcomb3 s1 " " s2))
+
+; In the case of a list containing a list
+(define (element-at2 lst i1 i2)
+  (element-at (element-at lst i1) i2))
