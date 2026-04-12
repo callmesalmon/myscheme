@@ -164,7 +164,7 @@ int main(int argc, char** argv) {
     printf("\n"
         "********************************\n\n\n"
         "             MyScheme              \n\n\n"
-        "          ctrl-d to exit.          \n\n\n"
+        "          ctrl-c to exit.          \n\n\n"
         "********************************\n");
 
     while (true) {
