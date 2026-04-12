@@ -88,7 +88,7 @@ void printer(object *obj) {
                     return_flag = 0;
                 }
                 else if (return_flag) {
-                    fprintf(stdout, "?");
+                    fprintf(stdout, "\\%c", *str);
                     return_flag = 0;
                 }
                 else
