@@ -25,7 +25,6 @@
     ((= a b) #t)
     (else #f)))
 
-; My beloved!!!
 (define rember
   (lambda (a lat)
     (cond
@@ -38,7 +37,6 @@
  (lambda (x)
     (and (not (pair? x)) (not (null? x)))))
 
-; LAT - List of AToms
 (define lat?
   (lambda (l)
     (cond
@@ -61,14 +59,13 @@
 
 (define (min a b)
     (if (< a b)
-      a   ; A < B => A
-      b)) ; A > B => B
+      a
+      b))
 
-; In this magical land, max is just -min!
 (define (max a b)
     (if (= (min a b) b)
-      a   ; MIN(A, B) == B? A
-      b)) ; MIN(A, B) == A? B
+      a
+      b))
 
 (define (facto n)
     (if (= n 1)
