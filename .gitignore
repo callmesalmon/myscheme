@@ -4,10 +4,9 @@
 *.obj
 *.out
 
+# Swapfiles
+*.swp
+*~
+
 # Specs
 myscm
-myscheme
-scm
-
-scheme
-!scheme/
