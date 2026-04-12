@@ -193,7 +193,7 @@
 
 (define (assv x y)
   (cond ((null? y) '())
-        ((eqv? x (caar y)) (car y))
+        ((eq? x (caar y)) (car y))
         ((assv x (cdr y)))))
 
 (define (assq x y)
@@ -212,7 +212,7 @@
 (define subst-in-s-exp
   (lambda (new old sexp)
     (cond ((symbol? sexp)
-          (if (eqv? sexp old) new sexp))
+          (if (eq? sexp old) new sexp))
           ((pair? sexp) (subst new old sexp))
           (else sexp))))
 
