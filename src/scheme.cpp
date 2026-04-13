@@ -11,6 +11,8 @@
 
 int debug=0;
 
+#define STDLIB_FILE "/usr/local/share/scheme/myscheme-stdlib.scm"
+
 int globl_argc;
 int globl_argc_offset;
 char **globl_argv;
@@ -89,9 +91,9 @@ void loadstd() {
     FILE *in=NULL;
     object* exp;
 
-    in=fopen("/usr/local/share/scheme/myscheme-stdlib.scm","r");
+    in=fopen(STDLIB_FILE,"r");
     if (in==NULL) {
-        fprintf(stdout, "Exception in load: Cannot load the stdlib (/usr/local/share/scheme/myscheme-stdlib.scm).\n");
+        fprintf(stdout, "Exception in load: Cannot load the stdlib (%s).\n", STDLIB_FILE);
         exit(-1);
     }
 
