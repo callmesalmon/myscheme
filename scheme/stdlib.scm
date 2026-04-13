@@ -158,17 +158,9 @@
   (if (= b 0) a
     (gcd b (remainder a b))))
 
-; The following square-root functions are made
+; The following square-root function was made
 ; with "great inspiration" from:
 ;   https://jaredkrinke.github.io/learn-scheme/1-1-7-examplesquarer.html
-(define (average x y)
-  (/ (+ x y) 2))
-
-(define (improve-accuracy guess x)
-  (average guess (/ x guess)))
-
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.0001))
 
 ; On more complicated numbers this may take
 ; up to 10 seconds so that's really fun :)))))
@@ -177,6 +169,12 @@
 ; To illustrate, ``(sqrt 50)`` returns 7. The margin
 ; of error is remarkably big.
 (define (sqrt x)
+  (define (average x y)
+    (/ (+ x y) 2))
+  (define (improve-accuracy guess x)
+    (average guess (/ x guess)))
+  (define (good-enough? guess x)
+    (< (abs (- (square guess) x)) 0.0001))
   (define (sqrt-iter guess x guess-amount)
     (cond
       ((> guess-amount 100000) guess)
@@ -184,37 +182,6 @@
       ((good-enough? guess x) guess)
       (else (sqrt-iter (improve-accuracy guess x) x (+ guess-amount 1)))))
   (abs (sqrt-iter 1 x 1)))
-
-; list
-(define (assoc x y)
-  (cond ((null? y) '())
-        ((eq? x (caar y)) (car y))
-        ((assoc x (cdr y)))))
-
-(define (assv x y)
-  (cond ((null? y) '())
-        ((eq? x (caar y)) (car y))
-        ((assv x (cdr y)))))
-
-(define (assq x y)
-  (cond ((null? y) '())
-        ((eq? x (caar y)) (car y))
-        ((assq x (cdr y)))))
-
-(define subst
-  (lambda (new old slist)
-    (if (null? slist)
-      '()
-       (cons
-	     (subst-in-s-exp new old (car slist))
-	     (subst new old (cdr slist))))))
-
-(define subst-in-s-exp
-  (lambda (new old sexp)
-    (cond ((symbol? sexp)
-          (if (eq? sexp old) new sexp))
-          ((pair? sexp) (subst new old sexp))
-          (else sexp))))
 
 ; In my opinion it's a bit nicer to have this as a variable
 ; rather than a function.
