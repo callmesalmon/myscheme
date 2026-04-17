@@ -93,7 +93,7 @@ void loadsrc(char *source) {
 
     in=fopen(source,"r");
     if (in==NULL) {
-        fprintf(stdout, "Exception in load: Cannot load '%s'.\n", source);
+        fprintf(stderr, "Exception in load: Cannot load '%s'.\n", source);
         exit(-1);
     }
 
