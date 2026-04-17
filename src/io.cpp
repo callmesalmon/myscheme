@@ -73,7 +73,7 @@ object* open_output_port_procedure(object* args) {
     file=car(args)->data.string.value;
     out=fopen(file,"w");
     if (out==NULL) {
-        return make_warn("Exception in open input port: Cannot open input port");
+        return make_warn("Exception in open output port: Cannot open output port");
     }
     return make_output_port(out);
 }
@@ -83,7 +83,7 @@ object* close_output_port_procedure(object* args) {
 
     res=fclose(car(args)->data.output_port.stream);
     if ( res==EOF ) {
-        return make_warn("Exception in close input port: Cannot close input port");
+        return make_warn("Exception in close output port: Cannot close output port");
     }
     return ok_symbol;
 }    
