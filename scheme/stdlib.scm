@@ -183,10 +183,6 @@
       (else (sqrt-iter (improve-accuracy guess x) x (+ guess-amount 1)))))
   (abs (sqrt-iter 1 x 1)))
 
-; In my opinion it's a bit nicer to have this as a variable
-; rather than a function.
-(define argc (__builtin_argc))
-
 ; help function,
 ; run in repl using
 ; ``(help)``.

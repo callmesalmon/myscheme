@@ -25,6 +25,9 @@ char **globl_argv;
 #define add_function(s_name,f_name)   \
         def_var_val(make_symbol(s_name), make_builtin_procedure(f_name), global_environment);
 
+#define add_var(v_name, f_name)        \
+        def_var_val(make_string(v_name), make_builtin_procedure(f_name), global_environment);
+
 void init() {
 
     init_symbol();
