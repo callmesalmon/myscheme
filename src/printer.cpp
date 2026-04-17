@@ -108,6 +108,12 @@ void printer(object *obj) {
         case COMPOUND_PROC:
             fprintf(stdout,"#<procedure>");
             break;
+        case INPUT_PORT:
+            fprintf(stdout,"#<input-port>");
+            break;
+        case OUTPUT_PORT:
+            fprintf(stdout,"#<output-port>");
+            break;
         case EMPTY_LIST:
             break;
         case WARN:
