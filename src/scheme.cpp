@@ -11,7 +11,7 @@
 
 int debug=0;
 
-#define STDLIB_FILE "/usr/local/share/scheme/myscheme-stdlib.scm"
+#define STDLIB_FILE (char *)"/usr/local/share/scheme/myscheme-stdlib.scm"
 
 int globl_argc;
 int globl_argc_offset;
@@ -87,22 +87,6 @@ void init() {
     add_function("system"           , system_procedure)
 }
 
-void loadstd() {
-    FILE *in=NULL;
-    object* exp;
-
-    in=fopen(STDLIB_FILE,"r");
-    if (in==NULL) {
-        fprintf(stdout, "Exception in load: Cannot load the stdlib (%s).\n", STDLIB_FILE);
-        exit(-1);
-    }
-
-    while( (exp=read(in))!=NULL ) {
-        eval(exp,global_environment);
-    }
-    fclose(in);
-}
-
 void loadsrc(char *source) {
     FILE *in=NULL;
     object* exp;
@@ -156,7 +140,7 @@ int main(int argc, char** argv) {
     init();
 
     if (have_stdlib)
-        loadstd();
+        loadsrc(STDLIB_FILE);
 
     if can_load {
         loadsrc(argv[1]);
