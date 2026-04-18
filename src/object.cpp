@@ -245,7 +245,7 @@ int is_symbol(object* obj) {
 }
 
 int is_warn(object* obj) {
-    return obj->type=WARN;
+    return obj->type==WARN;
 }
 
 int is_string(object* obj) {
