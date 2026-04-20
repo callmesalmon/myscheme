@@ -25,9 +25,6 @@ char **globl_argv;
 #define add_function(s_name,f_name)   \
         def_var_val(make_symbol(s_name), make_builtin_procedure(f_name), global_environment);
 
-#define add_var(v_name, f_name)        \
-        def_var_val(make_string(v_name), make_builtin_procedure(f_name), global_environment);
-
 void init() {
 
     init_symbol();
@@ -85,9 +82,10 @@ void init() {
     add_function("string-append"    , string_append_procedure);
 
     add_function("get-arg"          , get_arg_procedure);
-    add_function("__builtin_argc"   , get_argc_procedure);
     add_function("exit"             , exit_procedure);
     add_function("system"           , system_procedure)
+
+    add_function("_builtin_var_argc", get_argc_procedure);
 }
 
 void loadsrc(char *source) {
