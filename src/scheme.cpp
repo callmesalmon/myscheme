@@ -120,18 +120,15 @@ int main(int argc, char** argv) {
             
             debug = 1;
             amnt_flags++;
-
-            break;
         }
         flag("-v", "--version") {
             printf("Version: %s\n", VERSION);
-            return 2;
+            return 0;
         }
         flag("-n", "--nostdlib") {
             globl_argc_offset++;
             have_stdlib = 0;
             amnt_flags++;
-            break;
         }
     }
 
@@ -142,7 +139,7 @@ int main(int argc, char** argv) {
 
     if (can_load && not_end(amnt_flags, argc)) {
         loadsrc(argv[1 + amnt_flags]);
-        return 1;
+        return 0;
     }
 
     printf("\n"
