@@ -17,7 +17,7 @@ int globl_argc;
 int globl_argc_offset;
 char **globl_argv;
 
-#define can_load     (argc > 1 && debug == 0)
+#define can_load     argc > 1 && debug == 0
 #define not_end(i, l) ((l - 1) > i)
 #define flagzone for (int i = 0; i < argc; i++)
 #define flag(x, y)   if (!strcmp(argv[i], x) || !strcmp(argv[i], y))
@@ -143,7 +143,7 @@ int main(int argc, char** argv) {
     if (have_stdlib)
         loadsrc(STDLIB_FILE);
 
-    if can_load {
+    if (can_load) {
         loadsrc(argv[1]);
         return 1;
     }
