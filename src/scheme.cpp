@@ -17,7 +17,7 @@ int globl_argc;
 int globl_argc_offset;
 char **globl_argv;
 
-#define can_load     argc > 1 && debug == 0
+#define can_load argc > 1 && debug == 0
 #define not_end(i, l) ((l - 1) > i)
 #define flagzone for (int i = 0; i < argc; i++)
 #define flag(x, y)   if (!strcmp(argv[i], x) || !strcmp(argv[i], y))
@@ -105,6 +105,8 @@ void loadsrc(char *source) {
 }
 
 int main(int argc, char** argv) {
+    int amnt_flags = 0;
+
     int have_stdlib = 1;
 
     globl_argc = argc;
@@ -117,10 +119,8 @@ int main(int argc, char** argv) {
             printf("Debug mode!\n");
             
             debug = 1;
-            if not_end(i, argc) {
-                loadsrc(argv[i + 1]);
-                return 1;
-            }
+            amnt_flags++;
+
             break;
         }
         flag("-v", "--version") {
@@ -130,10 +130,7 @@ int main(int argc, char** argv) {
         flag("-n", "--nostdlib") {
             globl_argc_offset++;
             have_stdlib = 0;
-            if not_end(i, argc) {
-                loadsrc(argv[i + 1]);
-                return 1;
-            }
+            amnt_flags++;
             break;
         }
     }
@@ -143,8 +140,8 @@ int main(int argc, char** argv) {
     if (have_stdlib)
         loadsrc(STDLIB_FILE);
 
-    if (can_load) {
-        loadsrc(argv[1]);
+    if (can_load && not_end(amnt_flags, argc)) {
+        loadsrc(argv[1 + amnt_flags]);
         return 1;
     }
 
