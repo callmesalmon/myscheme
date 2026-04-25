@@ -112,10 +112,8 @@ int main(int argc, char** argv) {
     globl_argc = argc;
     globl_argv = argv;
 
-    globl_argc_offset = 1;
     flagzone {
         flag("-d", "--debug") {
-            globl_argc_offset++;
             printf("Debug mode!\n");
             
             debug = 1;
@@ -126,11 +124,12 @@ int main(int argc, char** argv) {
             return 0;
         }
         flag("-n", "--nostdlib") {
-            globl_argc_offset++;
             have_stdlib = 0;
             amnt_flags++;
         }
     }
+
+    globl_argc_offset = amnt_flags + 1;
 
     init();
 
