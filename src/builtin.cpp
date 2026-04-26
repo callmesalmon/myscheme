@@ -326,45 +326,47 @@ object* typeof_procedure(object* args) {
     const char *res;
     DEBUG("args' type: %d\n", args->type);
     switch (args->type) {
-        case 0: 
+        case INTEGER:
             res = "<integer>\n";
             break;
-        case 1:
+        case REAL:
             res = "<real>\n";
             break;
-        case 2: 
+        case BOOLEAN:
             res = "<boolean>\n";
             break;
-        case 3:
+        case CHARACTER:
             res = "<character>\n";
             break;
-        case 4:
+        case STRING:
             res = "<string>\n";
             break;
-        case 5:        
+        case PAIR:
             res = "<pair>\n";
             break;
-        case 6:
+        case SYMBOL:
             res = "<symbol>\n";
             break;
-        case 7:
+        case BUITLIN_PROC:
             res = "<builtin_function>\n";
             break;
-        case 8:       
+        case COMPOUND_PROC:
             res = "<compound_function\n>";
             break;
-        case 9:
+        case EMPTY_LIST:
             res = "<empty_list>\n";
             break;
-        case 10:
+        case WARN:
             res = "<warn>\n";
             break;
-        case 11:
+        case INPUT_PORT:
             res = "<INPUT PORT>\n";
             break;                  
-        default:                   
+        case OUTPUT_PORT:
             res = "<OUTPUT PORT>\n";
             break;
+        default:
+            return make_warn("Unknown type");
     }
     DEBUG("evaluated type to: %s\n", res);
     return make_string(res);
