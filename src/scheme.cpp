@@ -137,7 +137,7 @@ int main(int argc, char** argv) {
         loadsrc(STDLIB_FILE);
 
     if (can_load && not_end(amnt_flags, argc)) {
-        loadsrc(argv[1 + amnt_flags]);
+        loadsrc(argv[1 + amnt_flags]); // i e element AFTER the flags
         return 0;
     }
 
