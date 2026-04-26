@@ -28,10 +28,7 @@ object* load_procedure(object* args) {
     file=car(args)->data.string.value;
     in=fopen(file,"r");
     if (in==NULL) {
-        char *warning;
-        snprintf(warning, sizeof(char) * 256,
-            "Exception in load: Cannot load file '%s'.", file);
-        return make_warn(warning);
+        return make_warn("Cannot load file");
     }
 
     while( (exp=read(in))!=NULL ) {
